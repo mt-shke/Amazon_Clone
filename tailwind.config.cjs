@@ -10,6 +10,9 @@ module.exports = {
                 "bg-lightgrey": "#485769",
                 "bg-main": "#eaeded",
                 "text-secondary": "#cccccc",
+                orange: "#ffc739",
+                orangelight: "#ffd978",
+                orangedark: "#f08804",
             },
             fontFamily: {
                 ember: ["ember", "sans-serif"],
