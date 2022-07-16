@@ -1,21 +1,36 @@
 module.exports = {
     content: ["./src/**/*.{js,jsx}"],
+    plugins: [require("daisyui")],
+    theme: {
+        extend: {
+            colors: {
+                // 'darkgrey': withOpacityValue('--primary-cool'),
+                "bg-dark": "#131921",
+                "bg-grey": "#232f3e",
+                "bg-lightgrey": "#485769",
+                "bg-main": "#eaeded",
+                "text-secondary": "#cccccc",
+            },
+            fontFamily: {
+                ember: ["ember", "sans-serif"],
+                emberl: ["emberlight", "sans-serif"],
+                emberb: ["emberbold", "sans-serif"],
+                bookerly: ["bookerly", "sans-serif"],
+            },
+        },
+    },
     daisyui: {
         themes: [
             {
-                mytheme: {
+                custom: {
                     primary: "#a991f7",
                     secondary: "#f6d860",
-                    "bg-primary": "#131921",
-                    "bg-secondary": "#232f3e",
-                    "bg-third": "#485769",
-                    "bg-main": "#eaeded",
+                    "base-header": "#131921",
                     orange: "#ffc739",
                     orangelight: "#ffd978",
                     accent: "#37cdbe",
                     neutral: "#3d4451",
                     "base-100": "#ffffff",
-
                     "--rounded-box": "1rem", // border radius rounded-box utility class, used in card and other large boxes
                     "--rounded-btn": "0.5rem", // border radius rounded-btn utility class, used in buttons and similar element
                     "--rounded-badge": "1.9rem", // border radius rounded-badge utility class, used in badges and similar
@@ -30,5 +45,4 @@ module.exports = {
             },
         ],
     },
-    plugins: [require("daisyui")],
 };

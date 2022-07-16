@@ -1,11 +1,24 @@
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./layout/Footer";
+import Header from "./layout/Header";
+import HomePage from "./pages/HomePage";
+
+const App = () => {
     return (
-        <div className="App">
-            <p className="px-20 text-primary">
-                Click on the Vite and React logos to learn more
-            </p>
+        <div className="App bg-bg-main font-emberb">
+            <Header />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route
+                        path="*"
+                        element={<div>Bad route, nothing here</div>}
+                    />
+                </Routes>
+            </BrowserRouter>
+            <Footer />
         </div>
     );
-}
+};
 
 export default App;

@@ -2,5 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@font-face {
+    font-family: "ember";
+    src: url("./assets//fonts/Ember/Amazon-Ember-Medium.ttf");
 }
+@font-face {
+    font-family: "emberlight";
+    src: url("./assets//fonts/Ember/AmazonEmber_Lt.ttf");
+}
+@font-face {
+    font-family: "emberbold";
+    src: url("./assets//fonts/Ember/AmazonEmber_Bd.ttf");
+}
+@font-face {
+    font-family: "bookerly";
+    src: url("./assets//fonts/Bookerly/Bookerly-Regular.ttf");
+}
+
+@layer base {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+}
+
+@layer components {
+}
+@layer utilities {
+}
+
+/* @font-face {
+    font-family: "GoldmanBold";
+    src: local("GoldmanBold"),
+        url("./fonts/Goldman/Goldman-Bold.ttf") format("truetype");
+    font-weight: bold;
+} */
