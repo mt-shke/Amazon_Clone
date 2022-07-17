@@ -1,4 +1,4 @@
 const HomePage = () => {
-    return <div>This is the home page</div>;
+    return <main>This is the home page...</main>;
 };
 export default HomePage;
