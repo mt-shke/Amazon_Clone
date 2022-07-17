@@ -3,7 +3,7 @@ import NavBarLinks from "./NavBarLinks";
 
 const HeaderBottom = () => {
     return (
-        <div className="bg-bg-grey h-[39px] max-w-[800px] flex items-center">
+        <div className="bg-bg-grey h-[39px] flex items-center">
             <MenuAll />
             <NavBarLinks />
         </div>

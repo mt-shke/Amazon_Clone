@@ -5,20 +5,27 @@ module.exports = {
         extend: {
             colors: {
                 // 'darkgrey': withOpacityValue('--primary-cool'),
+                darkgrey: "#3f3f3f",
                 "bg-dark": "#131921",
                 "bg-grey": "#232f3e",
+                "bg-gray": "#37475a",
                 "bg-lightgrey": "#485769",
                 "bg-main": "#eaeded",
-                "text-secondary": "#cccccc",
+                "bg-mainlight": "#f3f3f3",
+                secondary: "#cccccc",
                 orange: "#ffc739",
                 orangelight: "#ffd978",
                 orangedark: "#f08804",
+                transparent: "transparent",
             },
             fontFamily: {
                 ember: ["ember", "sans-serif"],
                 emberl: ["emberlight", "sans-serif"],
                 emberb: ["emberbold", "sans-serif"],
                 bookerly: ["bookerly", "sans-serif"],
+            },
+            fontSize: {
+                xxs: [".65rem", ".7rem"],
             },
         },
     },

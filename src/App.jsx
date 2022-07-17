@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 
 const App = () => {
     return (
-        <div className="App bg-bg-main font-emberb">
+        <div className="App bg-bg-main font-emberb min-w-[1080px]">
             <Header />
             <BrowserRouter>
                 <Routes>
