@@ -2,7 +2,7 @@ import cart from "../../../assets/cart.svg";
 
 const HeaderCart = () => {
     return (
-        <div className="flex items-baseline px-2">
+        <div className="flex items-end h-full py-2 px-2 hover:cursor-pointer border border-transparent hover:border-white">
             <div className="w-10 relative flex justify-center">
                 <img
                     src={cart}

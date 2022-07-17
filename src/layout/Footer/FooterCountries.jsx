@@ -8,23 +8,91 @@ const FooterCountries = () => {
             </div>
             <div>
                 <ul className="w-[800px] flex-wrap flex justify-center items-center gap-3 text-xs text-white font-emberl">
-                    <li>Australie</li>
-                    <li>Allemagne</li>
-                    <li>Brésil</li>
-                    <li>Canada</li>
-                    <li>Chine</li>
-                    <li>Espagne</li>
-                    <li>États-Unis</li>
-                    <li>Inde</li>
-                    <li>Italie</li>
-                    <li>Japon</li>
-                    <li>Mexique</li>
-                    <li>Pays-Bas</li>
-                    <li>Pologne</li>
-                    <li>Royaume-Uni</li>
-                    <li>Émirats arabes unis</li>
-                    <li>Singapour</li>
-                    <li>Turquie</li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Australie
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Allemagne
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Brésil
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Canada
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Chine
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Espagne
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            États-Unis
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Inde
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Italie
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Japon
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Mexique
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Pays-Bas
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Pologne
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Royaume-Uni
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Émirats arabes unis
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Singapour
+                        </a>
+                    </li>
+                    <li>
+                        <a className="hover:underline" href="">
+                            Turquie
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

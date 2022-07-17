@@ -25,11 +25,6 @@
         padding: 0;
         box-sizing: border-box;
     }
-
-    span,
-    div {
-        white-space: ;
-    }
 }
 
 @layer components {
