@@ -6,7 +6,9 @@ import FooterServices from "./FooterServices";
 const Footer = () => {
     return (
         <footer className="w-full text-secondary font-ember text-sm">
-            <div className="bg-bg-gray p-4 text-center ">Retour en haut</div>
+            <div className="bg-bg-gray p-4 text-center hover:cursor-pointer hover:bg-bg-lightgrey text-white">
+                Retour en haut
+            </div>
             <FooterLinks />
             <hr className="border-t-[1px] border-darkgrey" />
             <FooterCountries />

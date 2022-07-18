@@ -13,6 +13,7 @@ module.exports = {
                 "bg-main": "#eaeded",
                 "bg-mainlight": "#f3f3f3",
                 secondary: "#cccccc",
+                teal: "#008296",
                 orange: "#ffc739",
                 orangelight: "#ffd978",
                 orangedark: "#f08804",
