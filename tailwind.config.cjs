@@ -28,6 +28,13 @@ module.exports = {
                 xxs: [".65rem", ".7rem"],
             },
         },
+        screens: {
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1240px",
+            "2xl": "1520px",
+        },
     },
     daisyui: {
         themes: [

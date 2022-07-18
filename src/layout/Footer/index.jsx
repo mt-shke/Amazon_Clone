@@ -5,7 +5,7 @@ import FooterServices from "./FooterServices";
 
 const Footer = () => {
     return (
-        <footer className="text-secondary font-ember text-sm">
+        <footer className="w-full text-secondary font-ember text-sm">
             <div className="bg-bg-gray p-4 text-center ">Retour en haut</div>
             <FooterLinks />
             <hr className="border-t-[1px] border-darkgrey" />

@@ -1,16 +1,18 @@
-import modeImg from "../assets/img/theme/mode.jpg";
+import LandingBackground from "../components/UI/LandingBackground";
+import LandingCard from "../components/UI/LandingCard";
 
 const HomePage = () => {
     return (
-        <main className="w-full bg-dark py-20">
-            <section className="grid grid gap-8 bg-dark px-4">
-                <article className="min-w-20 w-48 p-5 bg-white border-black border-1">
-                    <h2 className="text-xl">Abonnement Amazon Prime</h2>
-                    <div className="py-2">
-                        <img src={modeImg} alt="mode" />
-                    </div>
-                    <span className="font-ember text-base">Découvrir</span>
-                </article>
+        <main className="w-full max-w-[1520px] relative flex flex-col items-center">
+            <LandingBackground />
+
+            <section className="grid grid-rows-2 gap-6">
+                <section className="max-h-[420px] mt-72 z-10 grid grid-cols-3 lg:grid-cols-3 items-center gap-6 px-4 bg-dark overflow-hidden xl:grid-cols-4">
+                    <LandingCard />
+                    <LandingCard />
+                    <LandingCard />
+                    <LandingCard />
+                </section>
             </section>
         </main>
     );

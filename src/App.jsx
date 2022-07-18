@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 
 const App = () => {
     return (
-        <div className="App bg-bg-main font-emberb min-w-[1020px]">
+        <div className="App flex flex-col items-center bg-bg-main font-emberb min-w-[1020px]">
             <Header />
             <BrowserRouter>
                 <Routes>

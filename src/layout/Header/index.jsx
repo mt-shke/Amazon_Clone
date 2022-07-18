@@ -3,7 +3,7 @@ import HeaderTop from "./HeaderTop";
 
 const Header = () => {
     return (
-        <header className="bg-bg-dark text-white overflow-hidden">
+        <header className="w-full bg-bg-dark text-white overflow-hidden">
             <HeaderTop />
             <HeaderBottom />
         </header>
