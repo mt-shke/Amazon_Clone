@@ -28,6 +28,20 @@ module.exports = {
             fontSize: {
                 xxs: [".65rem", ".7rem"],
             },
+            animation: {
+                "slide-l": "slide-left .2s linear",
+                "slide-r": "slide-right .2s linear",
+            },
+            keyframes: {
+                "slide-left": {
+                    "0%": { transform: "translateX(-100%)" },
+                    "100%": { transform: "translateX(0%)" },
+                },
+                "slide-right": {
+                    "0%": { transform: "translateX(100%)" },
+                    "100%": { transform: "translateX(0%)" },
+                },
+            },
         },
         screens: {
             sm: "640px",
