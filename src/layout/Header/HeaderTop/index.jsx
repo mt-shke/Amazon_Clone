@@ -8,9 +8,12 @@ import HeaderCart from "./HeaderCart";
 const HeaderTop = () => {
     return (
         <div className="h-[60px] p-1 flex items-center gap-2">
-            <div className="flex-none flex w-28 h-full items-center flex-none p-1 px-2 hover:cursor-pointer border border-transparent hover:border-white">
+            <a
+                href="/"
+                className="flex-none flex w-28 h-full items-center flex-none p-1 px-2 hover:cursor-pointer border border-transparent hover:border-white"
+            >
                 <Logo />
-            </div>
+            </a>
             <HeaderAddress />
             <HeaderInput />
             <HeaderLogin />

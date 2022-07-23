@@ -15,6 +15,30 @@
     src: url("./assets//fonts/Ember/AmazonEmber_Bd.ttf");
 }
 @font-face {
+    font-family: "embercl";
+    src: url("./assets//fonts/EmberCondensed/AmazonEmberCdRC_Lt.ttf");
+}
+@font-face {
+    font-family: "embercb";
+    src: url("./assets//fonts/EmberCondensed/AmazonEmberCdRC_Bd.ttf");
+}
+@font-face {
+    font-family: "emberc";
+    src: url("./assets//fonts/EmberCondensed/AmazonEmberCdRC_Rg.ttf");
+}
+@font-face {
+    font-family: "emberct";
+    src: url("./assets//fonts/EmberCondensed/AmazonEmberCdRC_Th.ttf");
+}
+@font-face {
+    font-family: "emberdm";
+    src: url("./assets//fonts/EmberDisplay/AmazonEmberDisplay_Md.ttf");
+}
+@font-face {
+    font-family: "emberd";
+    src: url("./assets//fonts/EmberDisplay/AmazonEmberDisplay_Rg.ttf");
+}
+@font-face {
     font-family: "bookerly";
     src: url("./assets//fonts/Bookerly/Bookerly-Regular.ttf");
 }
@@ -35,6 +59,16 @@
         -webkit-appearance: none;
         appearance: none;
     } */
+
+    .tri {
+        display: inline-block;
+        height: 0;
+        width: 0;
+        border-right: 6px solid transparent;
+        border-bottom: 10px solid;
+        border-left: 6px solid transparent;
+        background-color: transparent;
+    }
 }
 
 /* @font-face {

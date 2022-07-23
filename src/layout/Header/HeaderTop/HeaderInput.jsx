@@ -25,10 +25,13 @@ const ddOptions = [
 const HeaderInput = () => {
     return (
         <div className="w-full min-w-[400px] text-bg-dark flex overflow-hidden rounded">
-            <select class="text-xs font-ember flex-none flex flex-row bg-bg-mainlight">
-                <option selected>Toutes nos catégories</option>
-                {ddOptions.map((opt) => (
-                    <option>{`${opt}`}</option>
+            <select
+                className="text-xs font-ember flex-none flex flex-row bg-bg-mainlight"
+                defaultValue={"Toutes nos catégories"}
+            >
+                <option>Toutes nos catégories</option>
+                {ddOptions.map((opt, index) => (
+                    <option key={index}>{`${opt}`}</option>
                 ))}
                 {/* <MdArrowDropDown color="black" size={18} /> */}
             </select>

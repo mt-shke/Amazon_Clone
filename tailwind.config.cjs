@@ -6,6 +6,7 @@ module.exports = {
             colors: {
                 // 'darkgrey': withOpacityValue('--primary-cool'),
                 darkgrey: "#3f3f3f",
+                darkblue: "#5a7c9f",
                 "bg-dark": "#131921",
                 "bg-grey": "#232f3e",
                 "bg-gray": "#37475a",
@@ -13,17 +14,27 @@ module.exports = {
                 "bg-main": "#eaeded",
                 "bg-mainlight": "#f3f3f3",
                 secondary: "#cccccc",
+                third: "#b5b5b5",
                 teal: "#008296",
+                blue: "#1c85c4",
                 orange: "#ffc739",
                 orangelight: "#ffd978",
-                orangedark: "#f08804",
+                orangedark: "#f0ba35",
+                orangedarker: "#fda003",
                 transparent: "transparent",
             },
             fontFamily: {
-                ember: ["ember", "sans-serif"],
-                emberl: ["emberlight", "sans-serif"],
-                emberb: ["emberbold", "sans-serif"],
-                bookerly: ["bookerly", "sans-serif"],
+                ember: ["ember", "Arial", "sans-serif"],
+                emberc: ["emberc", "Arial", "sans-serif"],
+                embercl: ["embercl", "Arial", "sans-serif"],
+                embercb: ["embercb", "Arial", "sans-serif"],
+                emberct: ["emberct", "Arial", "sans-serif"],
+                emberd: ["emberd", "Arial", "sans-serif"],
+                emberdm: ["emberdm", "Arial", "sans-serif"],
+                emberl: ["emberlight", "Arial", "sans-serif"],
+                emberb: ["emberbold", "Arial", "sans-serif"],
+                bookerly: ["bookerly", "Arial", "sans-serif"],
+                arial: ["Arial", "sans-serif"],
             },
             fontSize: {
                 xxs: [".65rem", ".7rem"],
@@ -31,8 +42,18 @@ module.exports = {
             animation: {
                 "slide-l": "slide-left .2s linear",
                 "slide-r": "slide-right .2s linear",
+                "fade-in": "fadeIn .2s ease-out",
+                spin: "spin 1s linear infinite",
             },
             keyframes: {
+                spin: {
+                    "0%": {
+                        transform: " rotate(0deg)",
+                    },
+                    "100%": {
+                        transform: "rotate(360deg)",
+                    },
+                },
                 "slide-left": {
                     "0%": { transform: "translateX(-100%)" },
                     "100%": { transform: "translateX(0%)" },
@@ -40,6 +61,14 @@ module.exports = {
                 "slide-right": {
                     "0%": { transform: "translateX(100%)" },
                     "100%": { transform: "translateX(0%)" },
+                },
+                fadeIn: {
+                    "0%": {
+                        opacity: "0",
+                    },
+                    "100%": {
+                        opacity: "1",
+                    },
                 },
             },
         },
