@@ -7,10 +7,9 @@ const MainNavigation = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<HomeStack />} />
+                <Route path="*" element={<HomeStack />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
-                <Route path="*" element={<div>Bad route, nothing here</div>} />
             </Routes>
         </BrowserRouter>
     );

@@ -13,7 +13,7 @@ const HomePage = () => {
     useEffect(() => {
         setTimeout(() => {
             setModal(false);
-        }, 3000);
+        }, 1500);
     }, []);
 
     const newArr = new Array(6)

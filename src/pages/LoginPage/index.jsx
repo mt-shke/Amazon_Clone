@@ -2,16 +2,23 @@ import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import LoginPageFooter from "./LoginPageFooter";
 import Button from "../../components/UI/buttons/Button";
+import LoginPageModalError from "./LoginPageModalError";
+import { useState } from "react";
+import LoginPageCGV from "./LoginPageCGV";
 
 const LoginPage = () => {
+    const [modalError, setModalError] = useState(false);
+
     return (
         <main className="w-full relative flex flex-col gap-4 items-center bg-white">
-            <section className="flex flex-col items-center gap-6 z-10 py-4">
-                <a href="/" className="w-32">
+            <section className="max-w-[400px] flex flex-col items-center gap-6 z-10 p-4">
+                <a href="/" className="w-28">
                     <img src={logo} alt="amazon logo" />
                 </a>
-                <div className="w-[400px] flex flex-col gap-4 font-embercb p-6 border-[1px] border-secondary rounded">
-                    <h2 className="text-4xl font-emberc">S'identifier</h2>
+                {modalError && <LoginPageModalError />}
+
+                <div className="w-full flex flex-col gap-4 font-embercb p-6 border-[1px] border-secondary rounded">
+                    <h2 className="text-3xl font-emberc">S'identifier</h2>
                     <label>
                         Adresse e-mail ou numéro de téléphone portable
                         <input
@@ -19,15 +26,14 @@ const LoginPage = () => {
                             className="w-full border-[1px] border-secondary rounded focus:outline-none"
                         />
                     </label>
-                    <Button>Continuer</Button>
+                    <div
+                        className="flex"
+                        onClick={() => setModalError((p) => !p)}
+                    >
+                        <Button>Continuer</Button>
+                    </div>
 
-                    <p className="font-emberc text-sm">
-                        En passant votre commande, vous acceptez les Conditions
-                        générales de vente d’Amazon. Veuillez consulter notre
-                        Notice Protection de vos informations personnelles,
-                        notre Notice Cookies et notre Notice Annonces
-                        publicitaires basées sur vos centres d’intérêt.
-                    </p>
+                    <LoginPageCGV />
 
                     <details className="font-emberc text-sm text-blue hover:cursor-pointer">
                         <summary>Avez-vous besoin d’aide ?</summary>
@@ -53,9 +59,10 @@ const LoginPage = () => {
                     </Link>
                 </div>
             </section>
-            <hr className="h-[2px] w-full bg-gradient-to-r from-white via-bg-main to-white border-none" />
+            <hr className="h-[2px] w-3/4 bg-gradient-to-r from-white via-bg-main to-white border-none" />
             <LoginPageFooter />
         </main>
     );
 };
+
 export default LoginPage;

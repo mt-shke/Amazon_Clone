@@ -24,7 +24,7 @@ const ddOptions = [
 
 const HeaderInput = () => {
     return (
-        <div className="w-full min-w-[400px] text-bg-dark flex overflow-hidden rounded">
+        <div className="w-full min-w-[280px] text-bg-dark flex overflow-hidden rounded">
             <select
                 className="text-xs font-ember flex-none flex flex-row bg-bg-mainlight"
                 defaultValue={"Toutes nos catégories"}

@@ -7,6 +7,8 @@ module.exports = {
                 // 'darkgrey': withOpacityValue('--primary-cool'),
                 darkgrey: "#3f3f3f",
                 darkblue: "#5a7c9f",
+                lightred: "#ffd9d3",
+                red: "#cc0000",
                 "bg-dark": "#131921",
                 "bg-grey": "#232f3e",
                 "bg-gray": "#37475a",

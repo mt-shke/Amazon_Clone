@@ -35,4 +35,5 @@ const NavBarLinks = () => {
         </nav>
     );
 };
+
 export default NavBarLinks;
