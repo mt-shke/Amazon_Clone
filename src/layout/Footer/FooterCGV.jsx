@@ -1,6 +1,6 @@
 const FooterCGV = () => {
     return (
-        <div className="grid place-items-center pb-8 bg-bg-dark text-white text-xs font-emberl">
+        <div className="grid place-items-center pb-8 bg-bg-dark text-white text-xs font-emberLight">
             <ul className="flex gap-4">
                 <li className="whitespace-nowrap hover:underline">
                     <a href="">Conditions générales de vente</a>

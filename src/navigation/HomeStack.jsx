@@ -6,7 +6,6 @@ import SearchPage from "../pages/SeachPage";
 
 const HomeStack = () => {
     return (
-        // <BrowserRouter>
         <>
             <Header />
             <Routes>
@@ -17,7 +16,8 @@ const HomeStack = () => {
             </Routes>
             <Footer />
         </>
-        // </BrowserRouter>
     );
 };
 export default HomeStack;
+
+

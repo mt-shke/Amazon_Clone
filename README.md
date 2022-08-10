@@ -41,3 +41,40 @@ package.json
 ```
 
 </details>
+
+<details>
+<summary>Firebase</summary>
+
+```js
+// npm install firebase
+```
+
+</details>
+
+<details>
+<summary>React hook form</summary>
+
+using test
+
+```js
+// name: string()
+// .trim()
+// .required("Saisissez votre nom")
+// .test(
+//     "contains-firstname-and-lastname",
+//     ((value) => space.includes(value.trim())) &&
+//         "Please enter your firstname and lastname",
+//     (value) => value.length > 2
+// ),
+```
+
+</details>
+
+<details>
+<summary>ContextProvider with Js</summary>
+
+```js
+
+```
+
+</details>

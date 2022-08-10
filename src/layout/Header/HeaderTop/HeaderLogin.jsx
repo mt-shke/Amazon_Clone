@@ -21,7 +21,7 @@ const HeaderLogin = () => {
                         Bonjour, Identifiez-vous
                     </span>
                     <div className="flex w-full">
-                        <span className="font-emberb text-sm whitespace-nowrap">
+                        <span className="font-emberBold text-sm whitespace-nowrap">
                             Compte et listes
                         </span>
                         <MdArrowDropDown color="lightgrey" size={18} />
@@ -42,7 +42,7 @@ const LoginPopup = () => {
             <Link to="/login">
                 <Button>Identifiez-vous</Button>
             </Link>
-            <div className="flex gap-1 font-emberl text-xs text-black">
+            <div className="flex gap-1 font-emberLight text-xs text-black">
                 <span>Nouveau client ?</span>
                 <CustomLink url={"/login"}>Commencer ici</CustomLink>
             </div>

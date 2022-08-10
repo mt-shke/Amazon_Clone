@@ -1,70 +1,117 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../schema/yup";
-import Button from "../../components/UI/buttons/Button";
 import { useState } from "react";
+import {
+    createNewAuthUser,
+    firebaseApp,
+    sendEmailValidation,
+} from "../../firebase";
+import Button from "../../components/UI/buttons/Button";
 import Input from "../../components/UI/form/Input";
+import { getAuth, sendEmailVerification } from "firebase/auth";
+import { setUserToFirestore } from "../../firebase/productsCollection";
 
-const RegisterForm = () => {
-    const [modalError, setModalError] = useState(false);
+const auth = getAuth(firebaseApp);
+
+const RegisterForm = ({ setAccountCreated }) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [emailAsyncError, setEmailAsyncError] = useState(null);
+
     const {
         register,
         handleSubmit,
+        clearErrors,
         formState: { errors },
     } = useForm({
         resolver: yupResolver(registerSchema),
     });
-    const onSubmit = (data) => console.log("SubmitSuccess", data);
 
-    console.log(errors);
-    // console.log(watch("name"));
+    const onSubmit = async (data) => {
+        try {
+            if (isSubmitting) return;
+            setIsSubmitting(true);
+            clearErrors();
+            setEmailAsyncError(null);
+            const newUser = await createNewAuthUser(data.email, data.password);
+
+            if (!newUser) throw new Error();
+            await sendEmailValidation();
+            const allResponse = await Promise.all([
+                await sendEmailVerification(auth.currentUser),
+                await setUserToFirestore(newUser.user.uid, {
+                    email: data.email,
+                    name: data.name,
+                }),
+            ]);
+
+            if (!allResponse) {
+                throw new Error(
+                    "Could not send email verification/Set user data to firestore"
+                );
+            }
+            return setTimeout(() => {
+                setAccountCreated(true);
+            }, 3000);
+        } catch (error) {
+            if (error.code === "auth/email-already-in-use") {
+                setEmailAsyncError("That email address is already in use!");
+            }
+            if (error.code === "auth/invalid-email") {
+                setEmailAsyncError("That email address is invalid!");
+            }
+            setIsSubmitting(false);
+            return;
+        }
+    };
 
     return (
         <>
-            <form className="flex flex-col gap-5">
-                <h2 className="text-3xl font-emberc">Créer un compte</h2>
+            <form
+                className="flex flex-col gap-5"
+                onSubmit={handleSubmit(onSubmit)}
+                method="POST"
+            >
+                <h2 className="text-3xl font-emberCondensed">
+                    Créer un compte
+                </h2>
                 <label>
                     Votre nom
-                    <Input placeholder="Prénom et nom" />
-                    {/* <input
-                        type="email"
-                        className="w-full border-2"
-                        {...register("name")}
-                    /> */}
+                    <Input
+                        placeholder="Prénom et nom"
+                        register={register}
+                        inputName={"name"}
+                        error={errors.name?.message}
+                    />
                 </label>
                 <label>
                     Numéro de téléphone portable ou adresse e-mail
-                    <Input />
-                    {/* <input
-                        type="email"
-                        className="w-full border-2"
-                        {...register("email")}
-                    /> */}
+                    <Input
+                        register={register}
+                        inputName={"email"}
+                        error={emailAsyncError ?? errors.email?.message}
+                    />
                 </label>
                 <label>
                     Mot de passe
-                    <Input placeholder="Au moins 6 caractères" />
-                    {/* <input
-                        type="email"
-                        className="w-full border-2"
-                        {...register("password")}
-                    /> */}
+                    <Input
+                        placeholder="Au moins 6 caractères"
+                        register={register}
+                        inputName={"password"}
+                        type="password"
+                        error={errors.password?.message}
+                    />
                 </label>
                 <label>
                     Entrez le mot de passe à nouveau
-                    <Input />
-                    {/* <input
-                        type="email"
-                        className="w-full border-2"
-                        {...register("passwordConfirmation")}
-                    /> */}
+                    <Input
+                        register={register}
+                        type="password"
+                        inputName={"passwordConfirmation"}
+                        error={errors.passwordConfirmation?.message}
+                    />
                 </label>
-                <button
-                    type="submit"
-                    className="flex w-full"
-                    disabled
-                    // onClick={handleSubmit(onSubmit)}
-                >
+                <button type="submit" className="flex w-full">
                     <Button>Continuer</Button>
                 </button>
             </form>

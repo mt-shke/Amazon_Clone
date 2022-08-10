@@ -27,14 +27,25 @@ module.exports = {
             },
             fontFamily: {
                 ember: ["ember", "Arial", "sans-serif"],
-                emberc: ["emberc", "Arial", "sans-serif"],
-                embercl: ["embercl", "Arial", "sans-serif"],
-                embercb: ["embercb", "Arial", "sans-serif"],
-                emberct: ["emberct", "Arial", "sans-serif"],
-                emberd: ["emberd", "Arial", "sans-serif"],
-                emberdm: ["emberdm", "Arial", "sans-serif"],
-                emberl: ["emberlight", "Arial", "sans-serif"],
-                emberb: ["emberbold", "Arial", "sans-serif"],
+                emberCondensed: ["emberCondensed", "Arial", "sans-serif"],
+                emberCondensedLight: [
+                    "emberCondensedLight",
+                    "Arial",
+                    "sans-serif",
+                ],
+                emberCondensedBold: [
+                    "emberCondensedBold",
+                    "Arial",
+                    "sans-serif",
+                ],
+                emberDisplay: ["emberDisplay", "Arial", "sans-serif"],
+                emberDisplayMedium: [
+                    "emberDisplayMedium",
+                    "Arial",
+                    "sans-serif",
+                ],
+                emberLight: ["emberLight", "Arial", "sans-serif"],
+                emberBold: ["emberBold", "Arial", "sans-serif"],
                 bookerly: ["bookerly", "Arial", "sans-serif"],
                 arial: ["Arial", "sans-serif"],
             },
@@ -44,7 +55,7 @@ module.exports = {
             animation: {
                 "slide-l": "slide-left .2s linear",
                 "slide-r": "slide-right .2s linear",
-                "fade-in": "fadeIn .2s ease-out",
+                fadeIn: "fadeIn .2s ease-out",
                 spin: "spin 1s linear infinite",
             },
             keyframes: {

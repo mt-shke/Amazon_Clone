@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdArrowDropDown } from "react-icons/md";
 
 const ddOptions = [
+    "Toutes nos catégories",
     "Alexa Skills",
     "Amazon Global Store",
     "Amazon Warehouse",
@@ -20,24 +22,44 @@ const ddOptions = [
     "Cuisine & Maison",
     "DVD & Blu-ray",
     "Epicerie",
+    "Boutique chèques-cadeaux",
+    "Boutique Kindle",
+    "Bricolage",
+    "Bébé & Puériculture",
+    "Chaussures et Sacs",
+    "Cuisine & Maison",
+    "DVD & Blu-ray",
+    "Epicerie",
 ];
 
 const HeaderInput = () => {
+    const [selection, setSelection] = useState("");
+
     return (
-        <div className="w-full min-w-[280px] text-bg-dark flex overflow-hidden rounded">
-            <select
-                className="text-xs font-ember flex-none flex flex-row bg-bg-mainlight"
-                defaultValue={"Toutes nos catégories"}
-            >
-                <option>Toutes nos catégories</option>
-                {ddOptions.map((opt, index) => (
-                    <option key={index}>{`${opt}`}</option>
-                ))}
-                {/* <MdArrowDropDown color="black" size={18} /> */}
-            </select>
+        <div
+            className={`w-full min-w-[280px] text-bg-dark flex overflow-hidden rounded border-[2px] border-${
+                selection.length ? "orange" : "transparent"
+            }`}
+        >
+            <div className="relative z-10 flex flex-row items-center gap-1 px-2 flex-initial w-fit bg-bg-mainlight text-sm font-emberDisplay hover:cursor-pointer focus:border-r-[3px] border-orange">
+                <span className="block whitespace-nowrap">
+                    {selection ? selection : ddOptions[0]}
+                </span>
+                <MdArrowDropDown color="black" size={18} />
+
+                <select
+                    onChange={(e) => setSelection(e.target.value)}
+                    className="absolute left-0 bottom-0 opacity-0 flex flex-row flex-initial w-full h-full bg-bg-orange text-sm font-ember hover:cursor-pointer active:border-orange active:border-[2px]"
+                >
+                    {ddOptions.map((opt, index) => (
+                        <option key={index}>{`${opt}`}</option>
+                    ))}
+                </select>
+            </div>
+
             <input
                 type="text"
-                className="w-full hover:border-w-1 border-orange"
+                className="w-full px-2 text-sm hover:border-w-1 border-orange outline-none font-emberDisplay"
             />
             <div className="p-2 grid place-items-center font-bold text-bg-dark bg-orange">
                 <AiOutlineSearch size={22} />

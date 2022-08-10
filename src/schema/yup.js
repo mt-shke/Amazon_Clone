@@ -1,32 +1,30 @@
 import { object, ref, string } from "yup";
 
-const space = " ";
-
 export const registerSchema = object().shape({
-    name: string()
-        .trim()
-        .required("Please enter your firstname and lastname")
-        .min(2, "This field is required")
-        .max(60, "Name is too long")
-        .test(
-            "contains-firstname-and-lastname",
-            ((value) => space.includes(value.trim())) &&
-                "Please enter your firstname and lastname",
-            (value) => value.length > 2
-        ),
+    name: string().trim().required("Saisissez votre nom"),
     email: string()
         .trim()
-        .required("Email is required")
-        .min(6, "Email is invalid")
-        .max(60, "Email is too long")
-        .email("Email is invalid"),
+        .required("Saisissez votre adresse e-mail")
+        .email(
+            "Adresse e-mail incorrect ou invalide. Veuillez corriger avant de réessayer."
+        ),
     password: string()
         .trim()
-        .required("Password is required")
-        .min(6, "Password is too small")
-        .max(40, "Password is too long"),
+        .required("6 caractères minimum requis")
+        .min(6, "6 caractères minimum requis"),
     passwordConfirmation: string()
         .trim()
-        .required("Password confirmation is missing")
-        .oneOf([ref("password")], "The passwords do not match"),
+        .required("Saisissez à nouveau votre mot de passe")
+        .oneOf([ref("password")], "Les mots de passe ne correspondent pas"),
+});
+
+export const emailSchema = object().shape({
+    email: string().trim().required("Saisissez votre adresse e-mail"),
+});
+
+export const passwordSchema = object().shape({
+    password: string()
+        .trim()
+        .required("Entrez votre mot de passe")
+        .min(6, "Entrez votre mot de passe"),
 });

@@ -4,10 +4,13 @@ import LoginPageFooter from "./LoginPageFooter";
 import Button from "../../components/UI/buttons/Button";
 import LoginPageModalError from "./LoginPageModalError";
 import { useState } from "react";
-import LoginPageCGV from "./LoginPageCGV";
+import LoginEmailForm from "./LoginEmailForm";
+import LoginPasswordForm from "./LoginPasswordForm";
+import CGV from "../RegisterPage/CGV";
 
 const LoginPage = () => {
-    const [modalError, setModalError] = useState(false);
+    const [modalError, setModalError] = useState(null);
+    const [email, setEmail] = useState(null);
 
     return (
         <main className="w-full relative flex flex-col gap-4 items-center bg-white">
@@ -15,27 +18,24 @@ const LoginPage = () => {
                 <a href="/" className="w-28">
                     <img src={logo} alt="amazon logo" />
                 </a>
-                {modalError && <LoginPageModalError />}
-
-                <div className="w-full flex flex-col gap-4 font-embercb p-6 border-[1px] border-secondary rounded">
-                    <h2 className="text-3xl font-emberc">S'identifier</h2>
-                    <label>
-                        Adresse e-mail ou numéro de téléphone portable
-                        <input
-                            type="email"
-                            className="w-full border-[1px] border-secondary rounded focus:outline-none"
+                {!!modalError && <LoginPageModalError errorType={modalError} />}
+                <div className="w-full flex flex-col gap-4 font-emberCondensedBold p-6 border-[1px] border-secondary rounded">
+                    {!email && (
+                        <LoginEmailForm
+                            setModalError={setModalError}
+                            setEmail={setEmail}
                         />
-                    </label>
-                    <div
-                        className="flex"
-                        onClick={() => setModalError((p) => !p)}
-                    >
-                        <Button>Continuer</Button>
-                    </div>
+                    )}
+                    {!!email && (
+                        <LoginPasswordForm
+                            setModalError={setModalError}
+                            setEmail={setEmail}
+                            email={email}
+                        />
+                    )}
+                    <CGV page="login" />
 
-                    <LoginPageCGV />
-
-                    <details className="font-emberc text-sm text-blue hover:cursor-pointer">
+                    <details className="font-emberCondensed text-sm text-blue hover:cursor-pointer">
                         <summary>Avez-vous besoin d’aide ?</summary>
                         <div className=" flex flex-col ml-4">
                             <a href="">Mot de passe oublié</a>

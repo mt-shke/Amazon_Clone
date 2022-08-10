@@ -7,36 +7,33 @@
     src: url("./assets//fonts/Ember/Amazon-Ember-Medium.ttf");
 }
 @font-face {
-    font-family: "emberlight";
+    font-family: "emberLight";
     src: url("./assets//fonts/Ember/AmazonEmber_Lt.ttf");
 }
 @font-face {
-    font-family: "emberbold";
+    font-family: "emberBold";
     src: url("./assets//fonts/Ember/AmazonEmber_Bd.ttf");
 }
 @font-face {
-    font-family: "embercl";
-    src: url("./assets//fonts/EmberCondensed/AmazonEmberCdRC_Lt.ttf");
+    font-family: "emberCondensedLight";
+    src: url("./assets//fonts/emberCondensed/AmazonEmberCdRC_Lt.ttf");
 }
 @font-face {
-    font-family: "embercb";
-    src: url("./assets//fonts/EmberCondensed/AmazonEmberCdRC_Bd.ttf");
+    font-family: "emberCondensedBold";
+    src: url("./assets//fonts/emberCondensed/AmazonEmberCdRC_Bd.ttf");
 }
 @font-face {
-    font-family: "emberc";
-    src: url("./assets//fonts/EmberCondensed/AmazonEmberCdRC_Rg.ttf");
+    font-family: "emberCondensed";
+    src: url("./assets//fonts/emberCondensed/AmazonEmberCdRC_Rg.ttf");
+}
+
+@font-face {
+    font-family: "emberDisplayMedium";
+    src: url("./assets//fonts/emberDisplay/AmazonEmberDisplay_Md.ttf");
 }
 @font-face {
-    font-family: "emberct";
-    src: url("./assets//fonts/EmberCondensed/AmazonEmberCdRC_Th.ttf");
-}
-@font-face {
-    font-family: "emberdm";
-    src: url("./assets//fonts/EmberDisplay/AmazonEmberDisplay_Md.ttf");
-}
-@font-face {
-    font-family: "emberd";
-    src: url("./assets//fonts/EmberDisplay/AmazonEmberDisplay_Rg.ttf");
+    font-family: "emberDisplay";
+    src: url("./assets//fonts/emberDisplay/AmazonEmberDisplay_Rg.ttf");
 }
 @font-face {
     font-family: "bookerly";
@@ -48,6 +45,13 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: "";
     }
 }
 

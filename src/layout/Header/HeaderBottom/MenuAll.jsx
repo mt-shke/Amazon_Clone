@@ -6,7 +6,7 @@ const MenuAll = () => {
                 <div className="w-4 bg-white h-[2px]"></div>
                 <div className="w-4 bg-white h-[2px]"></div>
             </div>
-            <span className="font-emberb text-sm">Toutes</span>
+            <span className="font-emberBold text-sm">Toutes</span>
         </div>
     );
 };

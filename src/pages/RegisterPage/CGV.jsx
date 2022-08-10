@@ -1,9 +1,14 @@
 import CustomLink from "../../components/UI/buttons/CustomLink";
 
-const LoginPageCGV = () => {
+const CGV = ({ page }) => {
+    let message = "En créant un compte";
+    if (page === "login") {
+        message = "En passant votre commande";
+    }
+
     return (
-        <p className="font-emberc text-sm">
-            {`En créant un compte, vous acceptez les `}
+        <p className="font-emberCondensed text-sm">
+            {`${message}, vous acceptez les `}
             <CustomLink>conditions générales de vente</CustomLink>
             {` 
 d’Amazon. Veuillez consulter notre `}
@@ -20,4 +25,4 @@ notre `}
         </p>
     );
 };
-export default LoginPageCGV;
+export default CGV;

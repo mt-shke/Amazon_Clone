@@ -7,7 +7,7 @@ const FooterCountries = () => {
                 <img src={logo} alt="amazon logo" />
             </div>
             <div>
-                <ul className="w-[800px] flex-wrap flex justify-center items-center gap-3 text-xs text-white font-emberl">
+                <ul className="w-[800px] flex-wrap flex justify-center items-center gap-3 text-xs text-white font-emberLight">
                     <li>
                         <a className="hover:underline" href="">
                             Australie

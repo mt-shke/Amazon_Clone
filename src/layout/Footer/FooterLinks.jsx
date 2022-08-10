@@ -2,7 +2,7 @@ const FooterLinks = () => {
     return (
         <div className="bg-bg-grey flex justify-center gap-28 px-2 py-10 font-ember text-sm text-secondary">
             <ul className="flex flex-col gap-1 w-[180px]">
-                <li className="text-white font-emberb text-base mb-2 whitespace-nowrap">
+                <li className="text-white font-emberBold text-base mb-2 whitespace-nowrap">
                     Pour mieux nous connaître
                 </li>
                 <li>
@@ -27,7 +27,7 @@ const FooterLinks = () => {
                 </li>
             </ul>
             <ul className="flex flex-col gap-1 w-[180px]">
-                <li className="text-white font-emberb text-base mb-2 whitespace-nowrap">
+                <li className="text-white font-emberBold text-base mb-2 whitespace-nowrap">
                     Gagnez de l'argent
                 </li>
                 <li>
@@ -84,7 +84,7 @@ const FooterLinks = () => {
             </ul>
 
             <ul className="flex flex-col gap-1 w-[180px]">
-                <li className="text-white font-emberb text-base mb-2 whitespace-nowrap">
+                <li className="text-white font-emberBold text-base mb-2 whitespace-nowrap">
                     Moyens de paiement Amazon
                 </li>
                 <li>
@@ -124,7 +124,7 @@ const FooterLinks = () => {
                 </li>
             </ul>
             <ul className="flex flex-col gap-1 w-[180px]">
-                <li className="text-white font-emberb text-base mb-2 whitespace-nowrap">
+                <li className="text-white font-emberBold text-base mb-2 whitespace-nowrap">
                     Besoin d'aide ?
                 </li>
                 <li>
