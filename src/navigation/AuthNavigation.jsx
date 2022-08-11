@@ -13,25 +13,44 @@ const AuthNavigation = () => {
     console.log("state is", state);
 
     onAuthStateChanged(auth, (user) => {
-        if (user) {
-            console.log("onAuthStateChanged user is: ", user);
-            if (!user.emailVerified) {
-                return setTimeout(() => {
-                    signOutFromApp();
+        // No logged user yet
+        if (!state.loggedUser) {
+            if (user) {
+                console.log("onAuthStateChanged user is: ", user);
 
-                    console.log("User Logged out: Email not verified");
-                }, 2000);
+                if (!user.emailVerified) {
+                    return setTimeout(() => {
+                        signOutFromApp();
+
+                        console.log("User Logged out: Email not verified");
+                    }, 2000);
+                }
+                console.log("Logged In User now is:", user);
+
+                return dispatch({
+                    type: "LOGIN_USER",
+                    payload: {
+                        loggedUser: {
+                            email: user.email,
+                            firstname: "Michel",
+                            lastname: "Tcha",
+                        },
+                    },
+                });
             }
-            console.log("Logged In User now is:", user);
+        }
 
-            // dispatch({
-            //     type: "LOGIN_USER",
-            //     payload: { loggedUser: { email: user.email } },
-            // });
+        // Logged user
+        if (state.loggedUser) {
+            if (state.loggedUser.email !== user.email) {
+                return dispatch({
+                    type: "LOGOUT_USER",
+                });
+            }
 
-            // set user context
-        } else {
-            console.log("No logged user");
+            if (state.loggedUser.email === user.email) {
+                return;
+            }
         }
     });
 

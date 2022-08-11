@@ -1,6 +1,6 @@
 const FooterServices = () => {
     return (
-        <div className="bg-bg-dark grid place-items-center text-secondary text-xxs font-emberLight">
+        <section className="bg-bg-dark grid place-items-center text-secondary text-xxs font-emberLight">
             <div className="w-[980px] grid grid-cols-5 gap-4 px-4 py-8 justify-center">
                 <span className="flex flew-wrap flex-col w-[100px] hover:underline hover:cursor-pointer">
                     <h6 className="whitespace-nowrap font-emberBold">
@@ -68,7 +68,7 @@ const FooterServices = () => {
                     </span>
                 </span>
             </div>
-        </div>
+        </section>
     );
 };
 export default FooterServices;

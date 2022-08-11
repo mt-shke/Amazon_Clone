@@ -4,21 +4,25 @@ import Button from "../../../components/UI/buttons/Button";
 import { Link } from "react-router-dom";
 import CustomLink from "../../../components/UI/buttons/CustomLink";
 
-const HeaderLogin = () => {
-    const [popup, setPopup] = useState(true);
+const HeaderLogin = ({ user }) => {
+    const [popup, setPopup] = useState(user ? true : false);
 
     useEffect(() => {
-        setTimeout(() => {
-            setPopup(false);
-        }, 10000);
+        if (!user) {
+            setTimeout(() => {
+                setPopup(false);
+            }, 10000);
+        }
     }, []);
 
     return (
         <div className="flex h-full relative">
-            <Link to="/login">
-                <div className="h-full flex flex-col justify-center items-center p-1 hover:cursor-pointer border border-transparent hover:border-white">
+            <Link to={user ? "/account" : "/login"}>
+                <div className="h-full flex flex-col justify-center items-start p-1 hover:cursor-pointer border border-transparent hover:border-white">
                     <span className="font-ember text-xs whitespace-nowrap">
-                        Bonjour, Identifiez-vous
+                        {user
+                            ? `Bonjour ${user.firstname ?? ""}`
+                            : "Bonjour, Identifiez-vous"}
                     </span>
                     <div className="flex w-full">
                         <span className="font-emberBold text-sm whitespace-nowrap">

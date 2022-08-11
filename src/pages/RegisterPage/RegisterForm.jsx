@@ -118,4 +118,5 @@ const RegisterForm = ({ setAccountCreated }) => {
         </>
     );
 };
+
 export default RegisterForm;

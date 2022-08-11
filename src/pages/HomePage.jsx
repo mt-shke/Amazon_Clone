@@ -16,7 +16,7 @@ const HomePage = () => {
         }, 1500);
     }, []);
 
-    const newArr = new Array(6)
+    const newArr = new Array(4)
         .fill(true)
         .map((item, index) => <Sect key={index} />);
 

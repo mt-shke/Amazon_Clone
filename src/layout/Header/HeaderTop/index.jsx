@@ -4,19 +4,23 @@ import HeaderInput from "./HeaderInput";
 import HeaderLogin from "./HeaderLogin";
 import HeaderCommands from "./HeaderCommands";
 import HeaderCart from "./HeaderCart";
+import { useContext } from "react";
+import { AuthContext } from "../../../state/AuthContext";
 
 const HeaderTop = () => {
+    const { state } = useContext(AuthContext);
+
     return (
-        <div className="h-[60px] p-1 flex items-center gap-2">
+        <div id="header" className="h-[60px] p-1 flex items-center gap-2">
             <a
                 href="/"
                 className="flex-none flex w-28 h-full items-center flex-none p-1 px-2 hover:cursor-pointer border border-transparent hover:border-white"
             >
                 <Logo />
             </a>
-            <HeaderAddress />
+            <HeaderAddress user={state.loggedUser} />
             <HeaderInput />
-            <HeaderLogin />
+            <HeaderLogin user={state.loggedUser} />
             <HeaderCommands />
             <HeaderCart />
         </div>

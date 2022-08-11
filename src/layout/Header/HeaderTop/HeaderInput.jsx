@@ -2,36 +2,6 @@ import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdArrowDropDown } from "react-icons/md";
 
-const ddOptions = [
-    "Toutes nos catégories",
-    "Alexa Skills",
-    "Amazon Global Store",
-    "Amazon Warehouse",
-    "Animalerie",
-    "Applis & Jeux",
-    "Auto et Moto",
-    "Bagages",
-    "Beauté et Parfum",
-    "Beauté Premium",
-    "Bijoux",
-    "Boutique chèques-cadeaux",
-    "Boutique Kindle",
-    "Bricolage",
-    "Bébé & Puériculture",
-    "Chaussures et Sacs",
-    "Cuisine & Maison",
-    "DVD & Blu-ray",
-    "Epicerie",
-    "Boutique chèques-cadeaux",
-    "Boutique Kindle",
-    "Bricolage",
-    "Bébé & Puériculture",
-    "Chaussures et Sacs",
-    "Cuisine & Maison",
-    "DVD & Blu-ray",
-    "Epicerie",
-];
-
 const HeaderInput = () => {
     const [selection, setSelection] = useState("");
 
@@ -67,4 +37,35 @@ const HeaderInput = () => {
         </div>
     );
 };
+
 export default HeaderInput;
+
+const ddOptions = [
+    "Toutes nos catégories",
+    "Alexa Skills",
+    "Amazon Global Store",
+    "Amazon Warehouse",
+    "Animalerie",
+    "Applis & Jeux",
+    "Auto et Moto",
+    "Bagages",
+    "Beauté et Parfum",
+    "Beauté Premium",
+    "Bijoux",
+    "Boutique chèques-cadeaux",
+    "Boutique Kindle",
+    "Bricolage",
+    "Bébé & Puériculture",
+    "Chaussures et Sacs",
+    "Cuisine & Maison",
+    "DVD & Blu-ray",
+    "Epicerie",
+    "Boutique chèques-cadeaux",
+    "Boutique Kindle",
+    "Bricolage",
+    "Bébé & Puériculture",
+    "Chaussures et Sacs",
+    "Cuisine & Maison",
+    "DVD & Blu-ray",
+    "Epicerie",
+];
