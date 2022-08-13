@@ -14,7 +14,11 @@ export default AccountGrid;
 const AccountGridItem = ({ item }) => {
     return (
         <Link to={item.link ? "/account" + item.link : "/account"}>
-            <article className="w-full h-full flex items-center gap-2 p-4 border-[1px] border-secondary rounded-lg hover:bg-bg-mainlight">
+            <article
+                className={`${
+                    item.link ? "" : "bg-bg-main"
+                } w-full h-full flex items-center gap-2 p-4 border-[1px] border-secondary rounded-lg hover:bg-bg-mainlight`}
+            >
                 <div className="w-1/3">
                     <img
                         className="w-full"
@@ -38,7 +42,6 @@ const accountGridData = [
         imgUrl: "../src/assets/img/accountPage/commands.png",
         title: "Vos commandes",
         description: "Suivre, retourner ou acheter à nouveau",
-
         link: "",
     },
     {
@@ -99,7 +102,13 @@ const accountGridData = [
         imgUrl: "../src/assets/img/accountPage/mobile_app.png",
         title: "Application Mobile",
         description: "Télécharger l'application Amazon",
-
         link: "",
+    },
+    {
+        imgUrl: "../src/assets/img/accountPage/contact.png",
+        title: "Votre compte",
+        description:
+            "Consulter vos données personnelles, supprimer définitivement votre compte Amazon",
+        link: "/delete",
     },
 ];

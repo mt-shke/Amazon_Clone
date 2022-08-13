@@ -28,3 +28,16 @@ export const passwordSchema = object().shape({
         .required("Entrez votre mot de passe")
         .min(6, "Entrez votre mot de passe"),
 });
+
+export const credentialsSchema = object().shape({
+    email: string()
+        .trim()
+        .required("Saisissez votre adresse e-mail")
+        .email(
+            "Adresse e-mail incorrect ou invalide. Veuillez corriger avant de réessayer."
+        ),
+    password: string()
+        .trim()
+        .required("Entrez votre mot de passe")
+        .min(6, "Mot de passe invalide"),
+});

@@ -1,18 +1,47 @@
-import { collection, doc, setDoc } from "firebase/firestore";
-import { db } from "./initialize";
+export * from "./address";
 
-const usersCollectionRef = collection(db, "users");
+import { deleteDoc, doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../initialize";
 
-// Add a new document in collection "cities"
-export const setUserToFirestore = async (userUid, data) => {
-    await setDoc(doc(db, "Users", userUid), {
+// Add user data to firestore
+export const createNewUserFirestoreData = async (newUserUid, data) => {
+    return await setDoc(doc(db, "Users", newUserUid), {
         firstname: data.name,
         lastname: "",
         email: data.email,
         profilPicture: "",
-        uid: userUid,
-        address: { street: "", zipCode: "", state: "" },
+        defaultAddress: {
+            fullname: "",
+            phoneNumber: "",
+            country: "",
+            street: "",
+            streetBis: "",
+            zipCode: "",
+            city: "",
+            defaultAddress: "",
+        },
+        addresses: [],
     });
+};
+
+// Get user data from firestore
+export const getUserFirestoreData = async (userUid) => {
+    try {
+        const docRef = doc(db, "Users", userUid);
+        const docSnap = await getDoc(docRef);
+        if (!docSnap.exists()) {
+            throw new Error("User data Doc, does not exist");
+        }
+        return docSnap.data();
+    } catch (error) {
+        console.error("getUserData, error is: ", error);
+
+        return error;
+    }
+};
+
+export const deleteUserData = async (userUid) => {
+    await deleteDoc(doc(db, "Users", userUid));
 };
 
 // export const setUserToFirestore = async (userUid: string, email: string) => {
@@ -81,16 +110,3 @@ export const setUserToFirestore = async (userUid, data) => {
 // };
 
 // export const getSpecificDoc = async () => {};
-
-// export const deleteUserData = async (userUid: string) => {
-//   try {
-//     const response = await firestore()
-//       .collection('Users')
-//       .doc(userUid)
-//       .delete();
-//     return response;
-//   } catch (error) {
-//     console.log(error);
-//     return null;
-//   }
-// };

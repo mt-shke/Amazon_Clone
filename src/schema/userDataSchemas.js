@@ -1,4 +1,5 @@
 import { boolean, object, string } from "yup";
+import { userAddressCountries } from "../data";
 
 const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -9,8 +10,9 @@ export const addressSchema = object().shape({
     country: string()
         .trim()
         .required("Saisissez le pays de destination")
-        .oneOf(["France"], "Saisissez le pays de destination"),
+        .oneOf(userAddressCountries, "Saisissez le pays de destination"),
     street: string().trim().required("Saisissez votre adresse"),
+    streetBis: string().trim(),
     zipCode: string()
         .trim()
         .required()

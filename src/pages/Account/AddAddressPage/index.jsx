@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import AddAddressForm from "./AddAddressForm";
 
-const AddAddressPage = () => {
+const AddAddressPage = ({ user }) => {
     return (
         <main className="w-full relative flex flex-col items-center bg-white">
-            <section className="w-[960px] flex flex-col gap-4 items-center py-8">
+            <section className="min-w-[520px] flex flex-col gap-4 items-start py-8">
                 <div className="text-sm">
                     <Link to="/account">
                         <span>{`Votre compte > `}</span>
@@ -15,8 +15,7 @@ const AddAddressPage = () => {
                     <span className="text-orangedarker">Nouvelle adresse</span>
                 </div>
                 <h2 className="text-3xl">Ajouter une nouvelle adresse</h2>
-
-                <AddAddressForm />
+                <AddAddressForm user={user} />
             </section>
         </main>
     );

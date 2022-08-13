@@ -4,12 +4,10 @@ import modeImg from "../assets/img/theme/mode.jpg";
 import prepareImg from "../assets/img/theme/prepare.jpg";
 import listenImg from "../assets/img/theme/listen.jpg";
 import audiblePromo from "../assets/img/theme/audible_promo.jpg";
-import { VariableSizeList } from "react-window";
 import { useEffect, useState } from "react";
 
 const HomePage = () => {
-    const [modal, setModal] = useState(true);
-
+    const [modal, setModal] = useState(false);
     useEffect(() => {
         setTimeout(() => {
             setModal(false);

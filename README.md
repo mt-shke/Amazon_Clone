@@ -96,3 +96,42 @@ export default defineConfig({
 ```
 
 </details>
+
+<details>
+<summary>Import icon 3 ways</summary>
+
+```js
+// Using react icon  => good, resize ok, fill bad
+   <AiFillCheckCircle size={32} color="green" />
+
+// Using directly as svg => resize by using height/width, need more pratice positionning, color ok
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="48"
+                    width="48"
+                    className="fill-white bg-green-600 rounded-full aspect-square"
+                >
+                    <path d="M18.9 35.7 7.7 24.5l2.15-2.15 9.05 9.05 19.2-19.2 2.15 2.15Z" />
+                </svg>
+
+// import as svg src => averrage
+                <svg
+                    src="../src/assets/svg/checkIcon.svg"
+                    className="w-6 aspect-square fill-white bg-green-600 rounded-full"
+                />
+```
+
+</details>
+
+<details>
+<summary>todo</summary>
+
+```js
+// set user data to firestore maybe after emailVerified
+// set crud user logic
+// add product crud
+
+// HeaderLoginAccountModal
+```
+
+</details>

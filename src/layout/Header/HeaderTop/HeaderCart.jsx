@@ -9,7 +9,7 @@ const HeaderCart = () => {
                     alt="cart icon"
                     className="w-full text-white pr-[6px]"
                 />
-                <span className="absolute top-[-6px] text-orangedark">15</span>
+                <span className="absolute top-[-6px] text-orangedark">0</span>
             </div>
             <span className="text-sm">Panier</span>
         </div>

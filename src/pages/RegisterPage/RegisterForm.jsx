@@ -2,21 +2,16 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../schema/yup";
 import { useState } from "react";
-import {
-    createNewAuthUser,
-    firebaseApp,
-    sendEmailValidation,
-} from "../../firebase";
+import { createNewAuthUser, sendEmailValidation } from "../../firebase";
 import Button from "../../components/UI/buttons/Button";
 import Input from "../../components/UI/form/Input";
-import { getAuth, sendEmailVerification } from "firebase/auth";
-import { setUserToFirestore } from "../../firebase/productsCollection";
+import { createNewUserFirestoreData } from "../../firebase/usersCollection";
+import { useNavigate } from "react-router-dom";
 
-const auth = getAuth(firebaseApp);
-
-const RegisterForm = ({ setAccountCreated }) => {
+const RegisterForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [emailAsyncError, setEmailAsyncError] = useState(null);
+    const navigate = useNavigate();
 
     const {
         register,
@@ -34,12 +29,12 @@ const RegisterForm = ({ setAccountCreated }) => {
             clearErrors();
             setEmailAsyncError(null);
             const newUser = await createNewAuthUser(data.email, data.password);
+            if (!newUser) throw new Error("Error while creating new user");
+            console.log(newUser);
 
-            if (!newUser) throw new Error();
-            await sendEmailValidation();
             const allResponse = await Promise.all([
-                await sendEmailVerification(auth.currentUser),
-                await setUserToFirestore(newUser.user.uid, {
+                await sendEmailValidation(newUser.user),
+                await createNewUserFirestoreData(newUser.user.uid, {
                     email: data.email,
                     name: data.name,
                 }),
@@ -50,9 +45,8 @@ const RegisterForm = ({ setAccountCreated }) => {
                     "Could not send email verification/Set user data to firestore"
                 );
             }
-            return setTimeout(() => {
-                setAccountCreated(true);
-            }, 3000);
+            navigate("/register?newAccountEmail=" + data.email);
+            return;
         } catch (error) {
             if (error.code === "auth/email-already-in-use") {
                 setEmailAsyncError("That email address is already in use!");
@@ -60,8 +54,8 @@ const RegisterForm = ({ setAccountCreated }) => {
             if (error.code === "auth/invalid-email") {
                 setEmailAsyncError("That email address is invalid!");
             }
-            setIsSubmitting(false);
-            return;
+        } finally {
+            return setIsSubmitting(false);
         }
     };
 

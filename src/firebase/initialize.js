@@ -18,3 +18,8 @@ const firebaseConfig = {
 // Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig);
 export const db = getFirestore(firebaseApp);
+
+export const getUserUid = () => {
+    const auth = getAuth(firebaseApp);
+    return auth.currentUser.uid;
+};

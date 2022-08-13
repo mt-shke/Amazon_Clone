@@ -4,8 +4,6 @@ import toys from "../../assets/img/bg/toys.jpg";
 import ship from "../../assets/img/bg/ship.jpg";
 import { HiOutlineChevronLeft } from "react-icons/hi";
 import { HiOutlineChevronRight } from "react-icons/hi";
-import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useEffect, useState } from "react";
 
 const LandingBackground = () => {

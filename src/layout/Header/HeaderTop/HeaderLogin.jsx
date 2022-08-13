@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import CustomLink from "../../../components/UI/buttons/CustomLink";
 
 const HeaderLogin = ({ user }) => {
-    const [popup, setPopup] = useState(user ? true : false);
+    const [popup, setPopup] = useState(user ? false : true);
 
     useEffect(() => {
-        if (!user) {
+        if (popup) {
             setTimeout(() => {
                 setPopup(false);
             }, 10000);

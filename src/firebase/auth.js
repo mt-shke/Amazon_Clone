@@ -4,34 +4,30 @@ import {
     signInWithEmailAndPassword,
     signOut,
     sendEmailVerification,
+    deleteUser,
 } from "firebase/auth";
-import { firebaseApp } from "./initialize";
+import { firebaseApp, getUserUid } from "./initialize";
 
 const auth = getAuth(firebaseApp);
 
+// CREATE AUTH USER
 export const createNewAuthUser = async (email, password) => {
     return await createUserWithEmailAndPassword(auth, email, password);
 };
 
+// SIGN IN
 export const signIn = async (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        });
+    return await signInWithEmailAndPassword(auth, email, password);
 };
 
+// SIGN OUT
 export const signOutFromApp = async () => {
     return await signOut(auth);
 };
 
-export const sendEmailValidation = async () => {
-    return await sendEmailVerification(auth.currentUser);
+// SEND EMAIL VERIFICATION
+export const sendEmailValidation = async (user) => {
+    return await sendEmailVerification(user);
 };
 
 // // USER Signup - Login - Sign out
@@ -105,19 +101,9 @@ export const sendEmailValidation = async () => {
 
 // // Others Auth Method
 
-// export const deleteAccount = async () => {
-//   try {
-//     const response = await auth().currentUser?.delete();
-//     console.log('in updatePassword fn:', response);
-//     if (!response) {
-//       return null;
-//     }
-//     return response;
-//   } catch (error) {
-//     console.error('Error In Firebase/Auth/DelAccFn', error);
-//     return null;
-//   }
-// };
+export const deleteAuthenticatedUser = async () => {
+    return await deleteUser(auth.currentUser);
+};
 
 // export const updatePassword = async (newPassword: string) => {
 //   try {

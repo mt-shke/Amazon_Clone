@@ -1,53 +1,57 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import HomeStack from "./HomeStack";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { firebaseApp, signOutFromApp } from "../firebase";
+import {
+    getAuth,
+    onAuthStateChanged,
+    sendEmailVerification,
+    signOut,
+} from "firebase/auth";
+import {
+    deleteAuthenticatedUser,
+    firebaseApp,
+    sendEmailValidation,
+    signOutFromApp,
+} from "../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../state/AuthContext";
+import LoadingPage from "../pages/LoadingPage";
 
 const AuthNavigation = () => {
     const auth = getAuth(firebaseApp);
     const { state, dispatch } = useContext(AuthContext);
-    console.log("state is", state);
 
     onAuthStateChanged(auth, (user) => {
         // No logged user yet
         if (!state.loggedUser) {
+            if (!user) {
+                return;
+            }
             if (user) {
-                console.log("onAuthStateChanged user is: ", user);
-
                 if (!user.emailVerified) {
-                    return setTimeout(() => {
-                        signOutFromApp();
-
-                        console.log("User Logged out: Email not verified");
-                    }, 2000);
+                    signOutFromApp();
+                    return;
                 }
-                console.log("Logged In User now is:", user);
-
-                return dispatch({
+                dispatch({
                     type: "LOGIN_USER",
                     payload: {
                         loggedUser: {
                             email: user.email,
-                            firstname: "Michel",
-                            lastname: "Tcha",
+                            userUid: user.uid,
                         },
                     },
                 });
+                return;
             }
         }
-
         // Logged user
         if (state.loggedUser) {
-            if (state.loggedUser.email !== user.email) {
+            if (!user) {
                 return dispatch({
                     type: "LOGOUT_USER",
                 });
             }
-
             if (state.loggedUser.email === user.email) {
                 return;
             }
@@ -57,11 +61,39 @@ const AuthNavigation = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="*" element={<HomeStack />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/register" element={<RegisterPage />} />
+                <Route
+                    path="*"
+                    element={<HomeStack user={state.loggedUser} />}
+                />
+                <Route
+                    path="/login"
+                    element={
+                        !!state.loggedUser ? (
+                            <>
+                                <Navigate to="/" redirect={true} />
+                                <LoadingPage />
+                            </>
+                        ) : (
+                            <LoginPage />
+                        )
+                    }
+                />
+                <Route
+                    path="/register"
+                    element={
+                        !!state.loggedUser ? (
+                            <>
+                                <Navigate to="/" redirect={true} />
+                                <LoadingPage />
+                            </>
+                        ) : (
+                            <RegisterPage />
+                        )
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );
 };
+
 export default AuthNavigation;

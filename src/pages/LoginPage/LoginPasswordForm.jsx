@@ -7,12 +7,12 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Button from "../../components/UI/buttons/Button";
 import { firebaseApp } from "../../firebase";
 import { MdArrowDropDown } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const auth = getAuth(firebaseApp);
 
 const LoginPasswordForm = ({ setModalError, setEmail, email }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
-
     const {
         register,
         handleSubmit,
@@ -21,6 +21,8 @@ const LoginPasswordForm = ({ setModalError, setEmail, email }) => {
     } = useForm({
         resolver: yupResolver(passwordSchema),
     });
+
+    const navigate = useNavigate();
 
     const onSubmit = async (data) => {
         try {
@@ -39,16 +41,15 @@ const LoginPasswordForm = ({ setModalError, setEmail, email }) => {
                 );
 
             setModalError(null);
-            return setTimeout(() => {
-                setIsSubmitting(false);
-            }, 3000);
+            navigate("/");
+            return;
         } catch (error) {
             if (error.code === "auth/wrong-password") {
                 setModalError("password");
             }
-
-            setIsSubmitting(false);
             return;
+        } finally {
+            setIsSubmitting(false);
         }
     };
 

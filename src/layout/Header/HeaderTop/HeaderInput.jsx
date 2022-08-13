@@ -7,7 +7,7 @@ const HeaderInput = () => {
 
     return (
         <div
-            className={`w-full min-w-[280px] text-bg-dark flex overflow-hidden rounded border-[2px] border-${
+            className={`w-full min-w-[280px] text-bg-dark flex overflow-hidden rounded-md border-[2px] border-${
                 selection.length ? "orange" : "transparent"
             }`}
         >

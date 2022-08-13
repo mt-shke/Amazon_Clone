@@ -10,7 +10,7 @@ const Input = ({ placeholder, type, register, inputName, error }) => {
         <>
             <div className="relative flex items-center w-full">
                 <input
-                    className="w-full border-[1px] border-secondary rounded  focus:outline-none text-base font-emberCondensed px-2 py-1"
+                    className="w-full border-[1px] border-secondary rounded focus:outline-none text-base font-emberCondensed px-2 py-1"
                     {...register(inputName)}
                     placeholder={placeholder ?? ""}
                     type={isValueVisible ? "text" : "password"}
