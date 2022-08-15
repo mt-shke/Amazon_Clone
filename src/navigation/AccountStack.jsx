@@ -1,29 +1,23 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import useUserData from "../hooks/useUserData";
+import { getUserFirestoreData } from "../firebase/usersCollection";
 import AccountPage from "../pages/Account/AccountPage";
 import AddAddressPage from "../pages/Account/AddAddressPage";
 import AddressesPage from "../pages/Account/AddressesPage";
+import UpdateUserdataPage from "../pages/Account/UpdateUserdataPage";
 import DeleteAccountPage from "../pages/DeleteAccountPage";
 import { AuthContext } from "../state/AuthContext";
 
 const AccountStack = ({ user }) => {
     const { dispatch } = useContext(AuthContext);
-    const { userData, update } = useUserData(user.userUid);
 
-    useEffect(() => {
-        if (!userData) {
-            update();
-        }
-
-        if (userData) {
-            const updatedUser = { ...user, ...userData };
-            dispatch({
-                type: "UPDATE_USER",
-                payload: { loggedUser: updatedUser },
-            });
-        }
-    }, [userData]);
+    const fetchUserData = async () => {
+        const updatedData = await getUserFirestoreData(user.userUid);
+        dispatch({
+            type: "UPDATE_USER",
+            payload: { loggedUser: { ...user, ...updatedData } },
+        });
+    };
 
     return (
         <>
@@ -31,18 +25,50 @@ const AccountStack = ({ user }) => {
                 <Navigate to={"/login"} redirect={true} />
             ) : (
                 <Routes>
-                    <Route path="/" element={<AccountPage user={user} />} />
+                    <Route
+                        path="/"
+                        element={
+                            <AccountPage
+                                user={user}
+                                fetchUserData={fetchUserData}
+                            />
+                        }
+                    />
                     <Route
                         path="/addresses/"
-                        element={<AddressesPage user={user} />}
+                        element={
+                            <AddressesPage
+                                user={user}
+                                fetchUserData={fetchUserData}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/update-user-data/"
+                        element={
+                            <UpdateUserdataPage
+                                user={user}
+                                fetchUserData={fetchUserData}
+                            />
+                        }
                     />
                     <Route
                         path="/addresses/add-address/"
-                        element={<AddAddressPage user={user} />}
+                        element={
+                            <AddAddressPage
+                                user={user}
+                                fetchUserData={fetchUserData}
+                            />
+                        }
                     />
                     <Route
                         path="/delete/"
-                        element={<DeleteAccountPage user={user} />}
+                        element={
+                            <DeleteAccountPage
+                                user={user}
+                                fetchUserData={fetchUserData}
+                            />
+                        }
                     />
                 </Routes>
             )}

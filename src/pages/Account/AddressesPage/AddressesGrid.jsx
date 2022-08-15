@@ -1,7 +1,8 @@
+import useUserData from "../../../hooks/useUserData";
 import AddNewAddressItem from "./AddNewAddressItem";
 import AddressItem from "./AddressItem";
 
-const AddressesGrid = ({ user, update }) => {
+const AddressesGrid = ({ user, update, fetchUserData }) => {
     if (!user?.addresses.length) {
         return (
             <section className="w-full grid grid-cols-3 grid-rows-3 gap-4 ">
@@ -13,23 +14,14 @@ const AddressesGrid = ({ user, update }) => {
     return (
         <section className="w-full grid grid-cols-3 grid-rows-3 gap-4 ">
             <AddNewAddressItem />
-            {!!user.defaultAddress && (
+            {user.addresses.map((address, index) => (
                 <AddressItem
-                    key={user.defaultAddress.street + "defaultAddress"}
+                    key={address.street + index}
                     user={user}
-                    address={user.defaultAddress}
+                    address={address}
+                    fetchUserData={fetchUserData}
                 />
-            )}
-            {user.addresses
-                .filter((address, index) => !address.defaultAddress)
-                .map((address, index) => (
-                    <AddressItem
-                        key={address.street + index}
-                        user={user}
-                        address={address}
-                        update={update}
-                    />
-                ))}
+            ))}
         </section>
     );
 };

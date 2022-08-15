@@ -2,21 +2,13 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import HomeStack from "./HomeStack";
-import {
-    getAuth,
-    onAuthStateChanged,
-    sendEmailVerification,
-    signOut,
-} from "firebase/auth";
-import {
-    deleteAuthenticatedUser,
-    firebaseApp,
-    sendEmailValidation,
-    signOutFromApp,
-} from "../firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { firebaseApp, signOutFromApp } from "../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../state/AuthContext";
 import LoadingPage from "../pages/LoadingPage";
+import { getUserFirestoreData } from "../firebase/usersCollection";
+import { useEffect } from "react";
 
 const AuthNavigation = () => {
     const auth = getAuth(firebaseApp);
@@ -33,15 +25,7 @@ const AuthNavigation = () => {
                     signOutFromApp();
                     return;
                 }
-                dispatch({
-                    type: "LOGIN_USER",
-                    payload: {
-                        loggedUser: {
-                            email: user.email,
-                            userUid: user.uid,
-                        },
-                    },
-                });
+                getUserData(user.uid);
                 return;
             }
         }
@@ -57,6 +41,26 @@ const AuthNavigation = () => {
             }
         }
     });
+
+    const getUserData = async (userUid) => {
+        try {
+            const data = await getUserFirestoreData(userUid);
+            if (!data) {
+                return;
+            }
+            dispatch({
+                type: "LOGIN_USER",
+                payload: {
+                    loggedUser: {
+                        ...data,
+                        userUid: userUid,
+                    },
+                },
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <BrowserRouter>

@@ -1,10 +1,10 @@
 import HeaderBottom from "./HeaderBottom";
 import HeaderTop from "./HeaderTop";
 
-const Header = () => {
+const Header = ({ user }) => {
     return (
         <header className="w-full bg-bg-dark text-white">
-            <HeaderTop />
+            <HeaderTop user={user} />
             <HeaderBottom />
         </header>
     );

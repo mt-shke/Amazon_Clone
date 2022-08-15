@@ -1,6 +1,6 @@
 export * from "./address";
 
-import { deleteDoc, doc, getDoc, setDoc } from "firebase/firestore";
+import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../initialize";
 
 // Add user data to firestore
@@ -34,12 +34,22 @@ export const getUserFirestoreData = async (userUid) => {
         }
         return docSnap.data();
     } catch (error) {
-        console.error("getUserData, error is: ", error);
-
+        console.error("getUserData error is: ", error);
         return error;
     }
 };
 
+// Update user data
+export const updateUserFirestoreData = async (user, data) => {
+    await updateDoc(doc(db, "Users", userUid), {
+        firstname: data.firstname,
+        lastname: data.lastname,
+        email: data.email,
+        profilPicture: data.profilPicture,
+    });
+};
+
+// Delete user data
 export const deleteUserData = async (userUid) => {
     await deleteDoc(doc(db, "Users", userUid));
 };

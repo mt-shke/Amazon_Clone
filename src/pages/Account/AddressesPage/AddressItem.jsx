@@ -3,18 +3,18 @@ import {
     setDefaultAddress,
 } from "../../../firebase/usersCollection";
 
-const AddressItem = ({ address, user, update }) => {
+const AddressItem = ({ address, user, fetchUserData }) => {
     const defaultAddressHandler = async () => {
         try {
             await setDefaultAddress(user, address);
-            update();
+            await fetchUserData();
         } catch (error) {}
     };
 
     const deleteAddressHandler = async () => {
         try {
             await deleteUserAddress(user, address);
-            update();
+            await fetchUserData();
         } catch (error) {
             console.log(error);
         }

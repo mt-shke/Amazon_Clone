@@ -66,7 +66,7 @@ const LoginEmailForm = ({ setModalError, setEmail }) => {
             <h2 className="text-3xl font-emberCondensed">S'identifier</h2>
             <label>
                 Adresse e-mail ou numéro de téléphone portable
-                <Input register={register} inputName={"email"} error={""} />
+                <Input register={register} inputname={"email"} error={""} />
             </label>
             <button type="submit" className="flex w-full">
                 <Button>Continuer</Button>

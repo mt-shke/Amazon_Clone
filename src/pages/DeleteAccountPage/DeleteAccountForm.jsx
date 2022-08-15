@@ -86,7 +86,7 @@ const DeleteAccountForm = ({ setDeleteMessage }) => {
                 <Input
                     placeholder=""
                     register={register}
-                    inputName={"email"}
+                    inputname={"email"}
                     error={errors?.email?.message}
                 />
             </label>
@@ -97,7 +97,7 @@ const DeleteAccountForm = ({ setDeleteMessage }) => {
                     placeholder=""
                     register={register}
                     type="password"
-                    inputName={"password"}
+                    inputname={"password"}
                     error={
                         passwordAsyncError ?? errors?.password?.message ?? ""
                     }

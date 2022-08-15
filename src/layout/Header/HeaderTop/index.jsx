@@ -4,12 +4,8 @@ import HeaderInput from "./HeaderInput";
 import HeaderLogin from "./HeaderLogin";
 import HeaderCommands from "./HeaderCommands";
 import HeaderCart from "./HeaderCart";
-import { useContext } from "react";
-import { AuthContext } from "../../../state/AuthContext";
 
-const HeaderTop = () => {
-    const { state } = useContext(AuthContext);
-
+const HeaderTop = ({ user }) => {
     return (
         <div id="header" className="h-[60px] p-1 flex items-center gap-2">
             <a
@@ -18,9 +14,9 @@ const HeaderTop = () => {
             >
                 <Logo />
             </a>
-            <HeaderAddress user={state.loggedUser} />
+            <HeaderAddress user={user} />
             <HeaderInput />
-            <HeaderLogin user={state.loggedUser} />
+            <HeaderLogin user={user} />
             <HeaderCommands />
             <HeaderCart />
         </div>

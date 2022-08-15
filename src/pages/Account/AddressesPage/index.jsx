@@ -1,27 +1,15 @@
-import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import useUserData from "../../../hooks/useUserData";
 import AddressesGrid from "./AddressesGrid";
 import SuccessAddressMessage from "./SuccessAddressMessage";
 
-const AddressesPage = ({ user }) => {
-    const { userData, update } = useUserData(user.userUid);
-
+const AddressesPage = ({ user, fetchUserData }) => {
     const { search } = useLocation();
     let showMessage = false;
 
     if (search === "?message=AddressSuccess") {
         showMessage = true;
+        fetchUserData();
     }
-
-    useEffect(() => {
-        if (search === "?message=AddressSuccess") {
-            update();
-        }
-    }, []);
-
-    console.log("userIs", user);
-    console.log("userDataIs", userData);
 
     return (
         <main className="w-full relative flex flex-col items-center bg-white">
@@ -34,10 +22,7 @@ const AddressesPage = ({ user }) => {
                 </div>
                 {!!showMessage && <SuccessAddressMessage />}
                 <h2 className="text-3xl">Vos adresses</h2>
-                <AddressesGrid
-                    user={{ ...user, ...userData }}
-                    update={update}
-                />
+                <AddressesGrid user={user} fetchUserData={fetchUserData} />
             </section>
         </main>
     );

@@ -85,7 +85,7 @@ const LoginPasswordForm = ({ setModalError, setEmail, email }) => {
                 </div>
                 <Input
                     register={register}
-                    inputName={"password"}
+                    inputname={"password"}
                     error={""}
                     type="password"
                 />

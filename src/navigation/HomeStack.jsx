@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import useUserData from "../hooks/useUserData";
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
 import HomePage from "../pages/HomePage";

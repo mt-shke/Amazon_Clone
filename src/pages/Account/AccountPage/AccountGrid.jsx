@@ -49,8 +49,7 @@ const accountGridData = [
         title: "Connexion & sécurité",
         description:
             "Modifier l'adresse e-mail, le nom et le numéro de téléphone mobile",
-
-        link: "",
+        link: "/update-user-data",
     },
     {
         imgUrl: "../src/assets/img/accountPage/prime.png",

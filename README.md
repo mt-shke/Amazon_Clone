@@ -127,7 +127,7 @@ export default defineConfig({
 <summary>todo</summary>
 
 ```js
-// set user data to firestore maybe after emailVerified
+// succesMessage updateProfile , finish update methods
 // set crud user logic
 // add product crud
 

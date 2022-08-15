@@ -74,7 +74,7 @@ const RegisterForm = () => {
                     <Input
                         placeholder="Prénom et nom"
                         register={register}
-                        inputName={"name"}
+                        inputname={"name"}
                         error={errors.name?.message}
                     />
                 </label>
@@ -82,7 +82,7 @@ const RegisterForm = () => {
                     Numéro de téléphone portable ou adresse e-mail
                     <Input
                         register={register}
-                        inputName={"email"}
+                        inputname={"email"}
                         error={emailAsyncError ?? errors.email?.message}
                     />
                 </label>
@@ -91,7 +91,7 @@ const RegisterForm = () => {
                     <Input
                         placeholder="Au moins 6 caractères"
                         register={register}
-                        inputName={"password"}
+                        inputname={"password"}
                         type="password"
                         error={errors.password?.message}
                     />
@@ -101,7 +101,7 @@ const RegisterForm = () => {
                     <Input
                         register={register}
                         type="password"
-                        inputName={"passwordConfirmation"}
+                        inputname={"passwordConfirmation"}
                         error={errors.passwordConfirmation?.message}
                     />
                 </label>

@@ -11,7 +11,6 @@ import { addUserAddress } from "../../../firebase/usersCollection";
 
 const AddAddressForm = ({ user }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
-    console.log("user is: ", user);
 
     const {
         register,
@@ -30,9 +29,8 @@ const AddAddressForm = ({ user }) => {
             if (isSubmitting) return;
             setIsSubmitting(true);
             clearErrors();
-            console.log(data);
 
-            await addUserAddress(user.userUid, data);
+            await addUserAddress(user, data);
 
             return setTimeout(() => {
                 // setAccountCreated(true);
@@ -92,7 +90,7 @@ const AddAddressForm = ({ user }) => {
                     <Input
                         placeholder="Saisissez votre nom"
                         register={register}
-                        inputName={"fullname"}
+                        inputname={"fullname"}
                         error={errors?.fullname?.message}
                     />
                 </label>
@@ -102,7 +100,7 @@ const AddAddressForm = ({ user }) => {
                     </span>
                     <Input
                         register={register}
-                        inputName={"phoneNumber"}
+                        inputname={"phoneNumber"}
                         error={errors?.phoneNumber?.message}
                     />
                 </label>
@@ -112,13 +110,13 @@ const AddAddressForm = ({ user }) => {
                         <Input
                             placeholder="Adresse"
                             register={register}
-                            inputName={"street"}
+                            inputname={"street"}
                             error={errors?.street?.message}
                         />
                         <Input
                             placeholder="Apt, suite, unité, nom de l'entreprise (facultatif)"
                             register={register}
-                            inputName={"streetBis"}
+                            inputname={"streetBis"}
                             error={""}
                         />
                     </div>
@@ -131,7 +129,7 @@ const AddAddressForm = ({ user }) => {
                         </span>
                         <Input
                             register={register}
-                            inputName={"zipCode"}
+                            inputname={"zipCode"}
                             error={errors?.zipCode?.message}
                         />
                     </label>
@@ -139,7 +137,7 @@ const AddAddressForm = ({ user }) => {
                         <span className="font-emberCondensedBold">Ville</span>
                         <Input
                             register={register}
-                            inputName={"city"}
+                            inputname={"city"}
                             error={errors?.city?.message}
                         />
                     </label>

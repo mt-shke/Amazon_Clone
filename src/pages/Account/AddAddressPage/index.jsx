@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import AddAddressForm from "./AddAddressForm";
 
-const AddAddressPage = ({ user }) => {
+const AddAddressPage = ({ user, fetchUserData }) => {
     return (
         <main className="w-full relative flex flex-col items-center bg-white">
             <section className="min-w-[520px] flex flex-col gap-4 items-start py-8">

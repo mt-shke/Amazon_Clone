@@ -22,3 +22,10 @@ export const addressSchema = object().shape({
     city: string().trim().required("Saisissez votre ville"),
     defaultAddress: boolean().default(false),
 });
+
+export const userDataSchema = object().shape({
+    firstname: string().trim().required("Saisissez votre prénom"),
+    lastname: string().trim().required("Saisissez votre nom"),
+    email: string().trim().email("Saisissez un email valide"),
+    profilPicture: string().trim(),
+});

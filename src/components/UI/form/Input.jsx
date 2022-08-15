@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 
-const Input = ({ placeholder, type, register, inputName, error }) => {
+const Input = ({ placeholder, type, register, inputname, error }) => {
     const [isValueVisible, setIsValueVisible] = useState(
         type === "password" ? false : true
     );
@@ -11,7 +11,7 @@ const Input = ({ placeholder, type, register, inputName, error }) => {
             <div className="relative flex items-center w-full">
                 <input
                     className="w-full border-[1px] border-secondary rounded focus:outline-none text-base font-emberCondensed px-2 py-1"
-                    {...register(inputName)}
+                    {...register(inputname)}
                     placeholder={placeholder ?? ""}
                     type={isValueVisible ? "text" : "password"}
                 />
