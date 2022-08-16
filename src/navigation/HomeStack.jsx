@@ -12,32 +12,28 @@ const HomeStack = ({ user }) => {
     return (
         <>
             <Header user={user} />
-            <main className="w-full max-w-[1520px] relative flex flex-col items-center">
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/search" element={<SearchPage />} />
-                    <Route
-                        path="/account//*"
-                        element={
-                            user ? (
-                                <AccountStack user={user} />
-                            ) : (
-                                <>
-                                    <Navigate to="/" redirect={true} />
-                                    <LoadingPage />
-                                </>
-                            )
-                        }
-                    />
-                    <Route path="/category//*" element={<CategoryPage />} />
-                    <Route path="/product//*" element={<ProductPage />} />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route
+                    path="/account//*"
+                    element={
+                        user ? (
+                            <AccountStack user={user} />
+                        ) : (
+                            <>
+                                <Navigate to="/" redirect={true} />
+                                <LoadingPage />
+                            </>
+                        )
+                    }
+                />
+                <Route path="/category//*" element={<CategoryPage />} />
+                <Route path="/product//*" element={<ProductPage />} />
 
-                    <Route
-                        path="*"
-                        element={<div>Bad route, nothing here</div>}
-                    />
-                </Routes>
-            </main>
+                <Route path="*" element={<div>Bad route, nothing here</div>} />
+            </Routes>
+
             <Footer />
         </>
     );

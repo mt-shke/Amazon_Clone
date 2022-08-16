@@ -1,6 +1,6 @@
 const SecondaryContent = () => {
     return (
-        <section className="min-w-[960px] grid grid-cols-3 grid-rows-3 gap-4 ">
+        <section className="w-full grid-auto-cols sm:grid-auto-cols md:min-w-[960px] grid md:grid-cols-3 md:grid-rows-3 gap-4 ">
             {secondaryData.map((content, index) => (
                 <SecondaryContentItem
                     key={content.title + index}

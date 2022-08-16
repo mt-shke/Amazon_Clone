@@ -1,6 +1,7 @@
 import HeaderInputMobile from "./mobile/HeaderInputMobile";
 import HeaderBottom from "./HeaderBottom";
 import HeaderTop from "./HeaderTop";
+import DeliveryAddress from "./mobile/DeliveryAddress";
 
 const Header = ({ user }) => {
     return (
@@ -8,6 +9,7 @@ const Header = ({ user }) => {
             <HeaderTop user={user} />
             <HeaderInputMobile />
             <HeaderBottom />
+            <DeliveryAddress user={user} />
         </header>
     );
 };

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const AccountGrid = () => {
     return (
-        <section className="min-w-[960px] grid grid-cols-3 grid-rows-3 gap-4 ">
+        <section className="grid-auto-cols sm:grid-auto-cols md:min-w-[960px] grid md:grid-cols-3 md:grid-rows-3 gap-4 ">
             {accountGridData.map((item, index) => (
                 <AccountGridItem key={item.title + index} item={item} />
             ))}
@@ -18,9 +18,9 @@ export const AccountGridItem = ({ item }) => {
             <article
                 className={`${
                     item.link ? "" : "bg-bg-main"
-                } w-full h-full flex items-center gap-2 p-4 border-[1px] border-secondary rounded-lg hover:bg-bg-mainlight`}
+                } h-28 w-full h-full flex items-center gap-2 p-4 border-[1px] border-secondary rounded-lg hover:bg-bg-mainlight`}
             >
-                <div className="w-1/3">
+                <div className="w-20 md:w-1/3">
                     <img
                         className="w-full"
                         src={item.imgUrl}

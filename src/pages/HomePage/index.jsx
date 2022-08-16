@@ -1,10 +1,17 @@
-import modeImg from "../../assets/img/theme/mode.jpg";
-import prepareImg from "../../assets/img/theme/prepare.jpg";
-import listenImg from "../../assets/img/theme/listen.jpg";
-import audiblePromo from "../../assets/img/theme/audible_promo.jpg";
 import { useEffect, useState } from "react";
+import {
+    collectionsCategory,
+    landingBgMobile,
+    paymentsCategory,
+    primeCategory,
+    startupCategory,
+} from "../../../data";
+import CategoryFullCard from "./components/CategoryFullCard";
+import CategorySection from "./components/CategorySection";
+import CategorySquareCard from "./components/CategorySquareCard";
+import LandingBackgroundMobile from "./components/LandingBackgroundMobile";
+import SectionCards from "./components/SectionCards";
 import LandingBackground from "./LandingBackground";
-import LandingCard from "./LandingCard";
 
 const HomePage = () => {
     const [modal, setModal] = useState(false);
@@ -14,50 +21,31 @@ const HomePage = () => {
         }, 1500);
     }, []);
 
-    const newArr = new Array(4)
+    const newArr = new Array(6)
         .fill(true)
-        .map((item, index) => <Sect key={index} />);
+        .map((item, index) => <SectionCards key={index} />);
 
     return (
-        <>
-            <LandingBackground />
-            <section className="grid grid-rows-2 gap-6 z-10">{newArr}</section>
-            {modal && <Modal />}
-        </>
+        <main className="w-full max-w-[1520px] relative flex flex-col gap-2 items-center">
+            <div className="hidden sm:hidden flex-col w-full md:flex">
+                <LandingBackground />
+                <section className="grid grid-rows-2 gap-6 z-10">
+                    {newArr}
+                </section>
+                {modal && <Modal />}
+            </div>
+
+            <div className="flex flex-col w-full sm:flex md:hidden gap-2">
+                <LandingBackgroundMobile data={landingBgMobile} />
+                <CategorySquareCard data={paymentsCategory} />
+                <CategoryFullCard data={primeCategory} />
+                <CategorySquareCard data={collectionsCategory} />
+                <CategoryFullCard data={startupCategory} />
+            </div>
+        </main>
     );
 };
 export default HomePage;
-
-const CategoriesCard = () => {
-    return (
-        <section className="grid sm:grid md:hidden grid-cols-2 grid-rows-2"></section>
-    );
-};
-
-const Sect = () => (
-    <section className="max-h-[420px] grid grid-cols-3 lg:grid-cols-3 items-center gap-6 px-4 bg-dark overflow-hidden xl:grid-cols-4">
-        <LandingCard
-            title="Abonnement Amazon Prime"
-            img={modeImg}
-            text="Découvrir"
-        />
-        <LandingCard
-            title="Preparez-vous pour la rentrée"
-            img={prepareImg}
-            text="Voir plus"
-        />
-        <LandingCard
-            title="Ecoutez des livres audio gratuis"
-            img={listenImg}
-            text="En savoir plus"
-        />
-        <LandingCard
-            title="1 livre audio offert avec Audible"
-            img={audiblePromo}
-            text="Je profite de cette offre"
-        />
-    </section>
-);
 
 const Modal = () => {
     return (

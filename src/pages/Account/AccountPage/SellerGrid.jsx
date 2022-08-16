@@ -2,7 +2,7 @@ import { AccountGridItem } from "./AccountGrid";
 
 const SellerGrid = () => {
     return (
-        <section className="min-w-[960px] grid grid-cols-3 gap-4 ">
+        <section className="w-full grid-auto-cols sm:grid-auto-cols md:min-w-[960px] grid md:grid-cols-3 gap-4 ">
             {sellerItems.map((item, index) => (
                 <AccountGridItem key={item.title + index} item={item} />
             ))}

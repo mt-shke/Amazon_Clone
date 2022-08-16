@@ -31,29 +31,29 @@ address
 product
 
 ```js
-title
-seller
-price
-quantity
-deliveryPrice
-createdAt
-updatedAt
---
-images
---
-rating
-reviews
+// title
+// seller
+// price
+// quantity
+// deliveryPrice
+// createdAt
+// updatedAt
+// --
+// images
+// --
+// rating
+// reviews
 
---
-MODEL
-brand
-color
-weight
-size
+// --
+// MODEL
+// brand
+// color
+// weight
+// size
 
---
-about
---
-description
---
+// --
+// about
+// --
+// description
+// --
 ```

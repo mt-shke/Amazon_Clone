@@ -51,7 +51,7 @@ export default HeaderLogin;
 
 const LoginPopup = () => {
     return (
-        <div className="absolute z-10 w-52 -bottom-[86px] flex flex-col gap-2 items-center p-4 bg-white rounded border-[.4px] border-orange animate-fade-in">
+        <div className="hidden sm:hidden md:flex absolute z-10 w-52 -bottom-[86px] flex-col gap-2 items-center p-4 bg-white rounded border-[.4px] border-orange animate-fade-in">
             <div className="absolute -top-[10px] tri border-b-bg-main"></div>
             <Link to="/login">
                 <Button>Identifiez-vous</Button>
