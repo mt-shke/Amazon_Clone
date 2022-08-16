@@ -57,3 +57,11 @@ product
 // description
 // --
 ```
+
+## Categories
+
+high-tech
+
+```js
+
+```

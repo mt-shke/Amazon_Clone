@@ -1,3 +1,8 @@
+import img1 from "./src/assets/img/square/payments/card.jpg";
+import img2 from "./src/assets/img/square/payments/cheque.jpg";
+import img3 from "./src/assets/img/square/payments/4x.jpg";
+import img4 from "./src/assets/img/square/payments/recharge.jpg";
+
 export const paymentsCategory = {
     category: "",
     title: "Découvrez nos moyens de paiment disponibles",
@@ -5,25 +10,30 @@ export const paymentsCategory = {
         {
             title: "Carte bancaire",
             itemUrl: "",
-            imgUrl: "./src/assets/img/square/payments/card.jpg",
+            imgUrl: img1,
         },
         {
             title: "Chèques-cadeaux",
             itemUrl: "",
-            imgUrl: "./src/assets/img/square/payments/cheque.jpg",
+            imgUrl: img2,
         },
         {
             title: "Paiement en 4 fois",
             itemUrl: "",
-            imgUrl: "./src/assets/img/square/payments/4x.jpg",
+            imgUrl: img3,
         },
         {
             title: "Recharge de compte",
             itemUrl: "",
-            imgUrl: "./src/assets/img/square/payments/recharge.jpg",
+            imgUrl: img4,
         },
     ],
 };
+
+import img5 from "./src/assets/img/square/collections/cadeauxOriginaux.jpg";
+import img6 from "./src/assets/img/square/collections/grandsFavoris.jpg";
+import img7 from "./src/assets/img/square/collections/perlesRares.jpg";
+import img8 from "./src/assets/img/square/collections/routineMatinale.jpg";
 
 export const collectionsCategory = {
     category: "",
@@ -32,42 +42,45 @@ export const collectionsCategory = {
         {
             title: "Cadeaux originaux",
             itemUrl: "",
-            imgUrl: "./src/assets/img/square/collections/cadeauxOriginaux.jpg",
+            imgUrl: img5,
         },
         {
             title: "Grands favoris",
             itemUrl: "",
-            imgUrl: "./src/assets/img/square/collections/grandsFavoris.jpg",
+            imgUrl: img6,
         },
         {
             title: "Perles rares",
             itemUrl: "",
-            imgUrl: "./src/assets/img/square/collections/perlesRares.jpg",
+            imgUrl: img7,
         },
         {
             title: "Routine matinale",
             itemUrl: "",
-            imgUrl: "./src/assets/img/square/collections/routineMatinale.jpg",
+            imgUrl: img8,
         },
     ],
 };
 
+import img9 from "./src/assets/img/square/media.jpg";
+import img10 from "./src/assets/img/square/startup.jpg";
+
 export const primeCategory = {
     category: "",
     title: "Regardez gratuitement pendant l'essai de 30 jours",
-    imgUrl: "./src/assets/img/square/media.jpg",
+    imgUrl: img9,
 };
 
 export const startupCategory = {
     category: "",
     title: "Produits uniques de start-ups",
-    imgUrl: "./src/assets/img/square/startup.jpg",
+    imgUrl: img10,
 };
 
-export const landingBgMobile = [
-    "./src/assets/img/square/bg-landing/bg_firetv.jpg",
-    "./src/assets/img/square/bg-landing/bg_girls.jpg",
-    "./src/assets/img/square/bg-landing/bg_rentree.jpg",
-    "./src/assets/img/square/bg-landing/bg_system.jpg",
-    "./src/assets/img/square/bg-landing/bg_tech.jpg",
-];
+import img11 from "./src/assets/img/square/bg-landing/bg_firetv.jpg";
+import img12 from "./src/assets/img/square/bg-landing/bg_girls.jpg";
+import img13 from "./src/assets/img/square/bg-landing/bg_system.jpg";
+import img14 from "./src/assets/img/square/bg-landing/bg_rentree.jpg";
+import img15 from "./src/assets/img/square/bg-landing/bg_tech.jpg";
+
+export const landingBgMobile = [img11, img12, img13, img14, img15];

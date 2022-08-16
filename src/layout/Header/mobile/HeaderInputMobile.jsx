@@ -15,7 +15,7 @@ const HeaderInputMobile = () => {
                     type="text"
                     className="w-full pl-2 pr-14 text-sm hover:border-w-1 border-orange outline-none font-emberDisplay"
                 />
-                <div className="p-3 absolute right-0 grid place-items-center font-bold text-bg-dark bg-orange rounded-lg">
+                <div className="p-3 absolute right-0 grid place-items-center font-bold text-bg-dark bg-orange rounded-md">
                     <AiOutlineSearch size={24} />
                 </div>
             </div>

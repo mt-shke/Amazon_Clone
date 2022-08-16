@@ -7,7 +7,6 @@ import {
     startupCategory,
 } from "../../../data";
 import CategoryFullCard from "./components/CategoryFullCard";
-import CategorySection from "./components/CategorySection";
 import CategorySquareCard from "./components/CategorySquareCard";
 import LandingBackgroundMobile from "./components/LandingBackgroundMobile";
 import SectionCards from "./components/SectionCards";
@@ -15,15 +14,26 @@ import LandingBackground from "./LandingBackground";
 
 const HomePage = () => {
     const [modal, setModal] = useState(false);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         setTimeout(() => {
             setModal(false);
+            setLoading(false);
         }, 1500);
     }, []);
 
     const newArr = new Array(6)
         .fill(true)
         .map((item, index) => <SectionCards key={index} />);
+
+    if (loading) {
+        return (
+            <main className="w-full max-w-[1520px] relative flex flex-col gap-2 items-center">
+                <div className="w-10 aspect-square animate-spin"></div>
+            </main>
+        );
+    }
 
     return (
         <main className="w-full max-w-[1520px] relative flex flex-col gap-2 items-center">
@@ -38,9 +48,9 @@ const HomePage = () => {
             <div className="flex flex-col w-full sm:flex md:hidden gap-2">
                 <LandingBackgroundMobile data={landingBgMobile} />
                 <CategorySquareCard data={paymentsCategory} />
-                <CategoryFullCard data={primeCategory} />
+                {/* <CategoryFullCard data={primeCategory} /> */}
                 <CategorySquareCard data={collectionsCategory} />
-                <CategoryFullCard data={startupCategory} />
+                {/* <CategoryFullCard data={startupCategory} /> */}
             </div>
         </main>
     );

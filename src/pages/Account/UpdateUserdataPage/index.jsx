@@ -4,7 +4,7 @@ import UpdateUserdataForm from "./UpdateUserdataForm";
 const UpdateUserdataPage = ({ user, fetchUserData }) => {
     return (
         <main className="w-full relative flex flex-col items-center bg-white">
-            <section className="max-w-[960px] flex flex-col gap-4 items-start py-8">
+            <section className="w-full max-w-[520px] md:max-w-[620px] flex flex-col gap-4 items-start px-2 py-8">
                 <div className="text-sm">
                     <Link to="/account">
                         <span>{`Votre compte > `}</span>

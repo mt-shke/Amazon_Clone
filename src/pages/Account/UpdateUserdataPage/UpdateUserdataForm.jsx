@@ -84,7 +84,7 @@ const UpdateUserdataForm = ({ user, fetchUserData }) => {
     return (
         <>
             <form
-                className="w-full flex min-w-[380px] flex-col gap-5"
+                className="w-full flex flex-auto flex-col gap-5"
                 onSubmit={handleSubmit(onSubmit)}
                 method="POST"
             >

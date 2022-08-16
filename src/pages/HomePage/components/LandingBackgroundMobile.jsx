@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import Button from "../../../components/UI/buttons/Button";
 import watch from "../../../assets/img/square/watch.jpg";
-import { Link } from "react-router-dom";
 
 const LandingBackgroundMobile = ({ data }) => {
     const imgs = [...data];

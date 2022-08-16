@@ -8,7 +8,7 @@ const CategoryFullCard = ({ data }) => {
                 <div className="w-full h-full grid place-items-center mt-2">
                     <img
                         className="w-full object-fit"
-                        src={data.imgUrl}
+                        src={img}
                         alt={data.title}
                     />
                 </div>
