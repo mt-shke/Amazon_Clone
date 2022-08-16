@@ -127,11 +127,15 @@ export default defineConfig({
 <summary>todo</summary>
 
 ```js
-// succesMessage updateProfile , finish update methods
-// set crud user logic
 // add product crud
-
+// product database
 // HeaderLoginAccountModal
+// responsive add product page
+```
+
+```js
+// responsive homePageexample - ok
+// responsive accountPages - ok
 ```
 
 </details>
