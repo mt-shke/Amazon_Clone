@@ -1,58 +1,53 @@
-const onSubmit = async (data: IImgUploadData) => {
+import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { db } from "../initialize";
+
+// Add user data to firestore
+export const createNewUserFirestoreData = async (newUserUid, data) => {
+    return await setDoc(doc(db, "Users", newUserUid), {
+        firstname: data.name,
+        lastname: "",
+        email: data.email,
+        profilPicture: "",
+        defaultAddress: {
+            fullname: "",
+            phoneNumber: "",
+            country: "",
+            street: "",
+            streetBis: "",
+            zipCode: "",
+            city: "",
+            defaultAddress: "",
+        },
+        addresses: [],
+    });
+};
+
+// Get user data from firestore
+export const getUserFirestoreData = async (userUid) => {
     try {
-      if (isFetching) {
-        return;
-      }
-      clearErrors();
-      Keyboard.dismiss();
-      setIsFetching(true);
-      const userUid = state.user!.uid;
-      const response = await sendLocalImgToStorage(userUid, {
-        uri: localImg.uri,
-        fileName: localImg.fileName,
-      });
-      if (!response) {
-        throw new Error(
-          'On submitting upload image form: cannot upload image to storage',
-        );
-      }
-
-      const fetchedUrl = (await response.getDownloadURL()) as string;
-      const newImg = {
-        title: data.title,
-        imgUrl: fetchedUrl,
-        description: data.description ?? '',
-        fileName: localImg.fileName,
-      };
-
-      await addFirestoreGalleryUserImage(userUid, newImg);
-      addNewImgToGallery(newImg);
-      setUploadImageModal(false);
-      setIsFetching(false);
-      return;
-    } catch (error: any) {
-      console.log('onSubmitting galleryImg error is:' + error);
-      setIsFetching(false);
-      return;
+        const docRef = doc(db, "Users", userUid);
+        const docSnap = await getDoc(docRef);
+        if (!docSnap.exists()) {
+            throw new Error("User data Doc, does not exist");
+        }
+        return docSnap.data();
+    } catch (error) {
+        console.error("getUserData error is: ", error);
+        return error;
     }
-  };
+};
 
-  // Image
-  const retrieveImg = async () => {
-    try {
-      setImgError('');
-      const localImgToUpload: any = await retrieveLocalImg();
-      if (!localImgToUpload) {
-        throw new Error('Image not available');
-      }
+// Update user data
+export const updateUserFirestoreData = async (user, data) => {
+    await updateDoc(doc(db, "Users", user.userUid), {
+        firstname: data.firstname,
+        lastname: data.lastname,
+        email: data.email,
+        profilPicture: data.profilPicture,
+    });
+};
 
-      setLocalImg(localImgToUpload);
-      const localImgUri = localImgToUpload.uri as string;
-      setValue('image', localImgUri);
-      return;
-    } catch (error: any) {
-      console.log('retrieveImg error: ' + error);
-      setImgError('Image not available');
-      return;
-    }
-  };
+// Delete user data
+export const deleteUserData = async (userUid) => {
+    await deleteDoc(doc(db, "Users", userUid));
+};

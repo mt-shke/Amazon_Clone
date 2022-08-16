@@ -7,11 +7,11 @@ const HeaderInput = () => {
 
     return (
         <div
-            className={`w-full min-w-[280px] text-bg-dark flex overflow-hidden rounded-md border-[2px] border-${
+            className={`hidden sm:hidden md:flex w-full min-w-[280px] text-bg-dark overflow-hidden rounded-md border-[2px] border-${
                 selection.length ? "orange" : "transparent"
             }`}
         >
-            <div className="relative z-10 flex flex-row items-center gap-1 px-2 flex-initial w-fit bg-bg-mainlight text-sm font-emberDisplay hover:cursor-pointer focus:border-r-[3px] border-orange">
+            <div className="hidden sm:hidden md:flex relative z-10 flex-row items-center gap-1 px-2 flex-initial w-fit bg-bg-mainlight text-sm font-emberDisplay hover:cursor-pointer focus:border-r-[3px] border-orange">
                 <span className="block whitespace-nowrap">
                     {selection ? selection : ddOptions[0]}
                 </span>

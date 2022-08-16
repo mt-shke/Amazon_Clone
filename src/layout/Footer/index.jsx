@@ -3,6 +3,7 @@ import FooterCGV from "./FooterCGV";
 import FooterCountries from "./FooterCountries";
 import FooterLinks from "./FooterLinks";
 import FooterServices from "./FooterServices";
+import FooterMobileLinks from "./mobile/FooterMobileLinks";
 
 const Footer = () => {
     const scrollTop = () => {
@@ -22,6 +23,7 @@ const Footer = () => {
                 Retour en haut
             </section>
             <FooterLinks />
+            <FooterMobileLinks />
             <hr className="border-t-[1px] border-darkgrey" />
             <FooterCountries />
             <FooterServices />

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { MdArrowDropDown } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
 import Button from "../../../components/UI/buttons/Button";
 import { Link } from "react-router-dom";
 import CustomLink from "../../../components/UI/buttons/CustomLink";
@@ -16,9 +17,9 @@ const HeaderLogin = ({ user }) => {
     }, []);
 
     return (
-        <div className="flex h-full relative">
+        <div className="w-full sm:w-full md:w-fit h-full justify-end flex items-center relative">
             <Link to={user ? "/account" : "/login"}>
-                <div className="h-full flex flex-col justify-center items-start p-1 hover:cursor-pointer border border-transparent hover:border-white">
+                <div className="hidden sm:hidden md:flex h-full flex-col justify-center items-start p-1 hover:cursor-pointer border border-transparent hover:border-white">
                     <span className="font-ember text-xs whitespace-nowrap">
                         {user
                             ? `Bonjour ${user.firstname ?? ""}`
@@ -30,6 +31,15 @@ const HeaderLogin = ({ user }) => {
                         </span>
                         <MdArrowDropDown color="lightgrey" size={18} />
                     </div>
+                </div>
+                <div className="flex sm:flex md:hidden items-baseline gap-2">
+                    <span className="font-emberBold text-base whitespace-nowrap">
+                        {user
+                            ? `Bonjour ${user.firstname ?? ""}`
+                            : "Se connecter"}
+                    </span>
+
+                    <FaRegUser color="lightgrey" size={18} />
                 </div>
             </Link>
             {!!popup && <LoginPopup />}

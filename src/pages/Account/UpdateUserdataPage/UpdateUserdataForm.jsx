@@ -1,16 +1,33 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../components/UI/buttons/Button";
 import Input from "../../../components/UI/form/Input";
-import { sendImgToStorage } from "../../../firebase/storage";
+import {
+    deleteImg,
+    getImgUrl,
+    sendImgToStorage,
+} from "../../../firebase/storage";
 import { updateUserFirestoreData } from "../../../firebase/usersCollection";
 import { userDataSchema } from "../../../schema/userDataSchemas";
 
-const UpdateUserdataForm = ({ user }) => {
+const UpdateUserdataForm = ({ user, fetchUserData }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [currentImg, setCurrentImg] = useState(null);
+    const [currentImgUrl, setCurrentImgUrl] = useState(null);
+
+    useEffect(() => {
+        if (!currentImg && user.profilPicture) {
+            getUserAvatar();
+        }
+    }, []);
+
+    const getUserAvatar = async () => {
+        const avatarUrl = await getImgUrl(user, user.profilPicture);
+        setCurrentImgUrl((p) => avatarUrl);
+    };
 
     const {
         register,
@@ -25,38 +42,42 @@ const UpdateUserdataForm = ({ user }) => {
 
     const inputImageHandler = (e) => {
         setCurrentImg((p) => e.target.files[0]);
+        setCurrentImgUrl((p) => URL.createObjectURL(e.target.files[0]));
     };
 
     const onSubmit = async (data) => {
+        let avatarRef = "";
         try {
             if (isSubmitting) return;
             setIsSubmitting(true);
             clearErrors();
-            console.log(data);
 
-            let avatarUrl = "";
             if (currentImg) {
-                avatarUrl = await sendImgToStorage(user, currentImg);
+                avatarRef = await sendImgToStorage(user, currentImg);
             }
 
+            // throw new Error("try this");
             await updateUserFirestoreData(user, {
                 ...data,
-                profilPicture: avatarUrl,
+                profilPicture: avatarRef,
             });
+
+            if (avatarRef !== user.profilPicture) {
+                await deleteImg(user, user.profilPicture);
+            }
+
             return setTimeout(() => {
                 // setAccountCreated(true);
-                navigate("/account?message=UpdateProfilSuccess");
+                fetchUserData();
+                navigate("/account");
             }, 1500);
         } catch (error) {
-            if (error.code === "auth/email-already-in-use") {
+            if (avatarRef) {
+                await deleteImg(user, avatarRef);
             }
-            if (error.code === "auth/invalid-email") {
-            }
-            console.error("Add address error: ", error);
+            console.error("UpdateUserdataForm error: ", error);
             setIsSubmitting(false);
             return;
-        } finally {
-            setIsSubmitting(false);
         }
     };
 
@@ -74,6 +95,7 @@ const UpdateUserdataForm = ({ user }) => {
                         register={register}
                         inputname={"firstname"}
                         error={errors?.firstname?.message}
+                        defaultValue={user.firstname}
                     />
                 </label>
                 <label>
@@ -83,6 +105,7 @@ const UpdateUserdataForm = ({ user }) => {
                         register={register}
                         inputname={"lastname"}
                         error={errors?.lastname?.message}
+                        defaultValue={user.lastname}
                     />
                 </label>
                 <label>
@@ -92,14 +115,15 @@ const UpdateUserdataForm = ({ user }) => {
                         register={register}
                         inputname={"email"}
                         error={errors?.email?.message}
+                        defaultValue={user.email}
                     />
                 </label>
 
-                <label htmlFor="avatar" className="my-2">
-                    <span className="font-emberCondensedBold bg-bg-main rounded px-3 py-2 text-sm border-[1px] border-secondary">
+                <label htmlFor="avatar" className="flex flex-row gap-6 my-2">
+                    <span className="font-emberCondensedBold bg-bg-main rounded px-3 py-2 h-fit text-sm border-[1px] border-secondary">
                         Ajouter un avatar
                     </span>
-                    <div>
+                    <div className="w-20 aspect-square">
                         <input
                             onChange={(e) => inputImageHandler(e)}
                             id="avatar"
@@ -107,8 +131,15 @@ const UpdateUserdataForm = ({ user }) => {
                             accept="image/*"
                             placeholder="Ajouter un avatar"
                             // {...register("profilPicture")}
-                            // className="hidden"
+                            className="hidden"
                         />
+
+                        {!!currentImgUrl && (
+                            <img
+                                className="object-contain"
+                                src={currentImgUrl}
+                            />
+                        )}
                     </div>
                 </label>
 
@@ -119,7 +150,7 @@ const UpdateUserdataForm = ({ user }) => {
                     }
                     type="submit"
                 >
-                    <Button>Ajouter une adresse</Button>
+                    <Button>Mettre à jour</Button>
                 </button>
             </form>
         </>

@@ -1,5 +1,12 @@
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+    getStorage,
+    ref,
+    uploadBytes,
+    getDownloadURL,
+    deleteObject,
+} from "firebase/storage";
 import { firebaseApp } from "../initialize";
+import { v4 as uuidv4 } from "uuid";
 
 // Create a root reference
 const storage = getStorage(firebaseApp);
@@ -8,34 +15,34 @@ const storage = getStorage(firebaseApp);
 
 export const sendImgToStorage = async (user, data) => {
     try {
+        const uuid = uuidv4();
+        const imgRef = uuid + data.name;
         const storageRef = ref(
             storage,
-            "images/" + user.userUid + "/" + data.name
+            "images/" + user.userUid + "/" + imgRef
         );
         const metaData = await uploadBytes(storageRef, data);
         if (!metaData) {
             throw new Error("sendImgToStorage failed");
         }
-        return await getDownloadURL(storageRef);
+        return imgRef;
     } catch (error) {
         console.log("Error: " + error);
         return error;
     }
 };
 
-// export const sendLocalImgToStorage = async (user, data) => {
-//     try {
-//       const ref = storage().ref(`/assets/users/${user.userUid}/` + data.fileName);
-//       const response = await ref.putFile(data.uri);
-//       if (!response) {
-//         throw new Error('Could not upload image to Storage');
-//       }
-//       return ref;
-//     } catch (error) {
-//       console.log('Error: ' + error);
-//       return error;
-//     }
-//   };
+// Get Image url
+export const getImgUrl = async (user, imgRef) => {
+    const storageRef = ref(storage, "images/" + user.userUid + "/" + imgRef);
+    return await getDownloadURL(storageRef);
+};
+
+// Delete Img
+export const deleteImg = async (user, imgRef) => {
+    const storageRef = ref(storage, "images/" + user.userUid + "/" + imgRef);
+    return await deleteObject(storageRef);
+};
 
 // Create a reference to the file to delete
 
@@ -45,3 +52,10 @@ export const sendImgToStorage = async (user, data) => {
 // }).catch((error) => {
 //   // Uh-oh, an error occurred!
 // });
+
+export const deleteImgFromStorage = async (imgUrl) => {
+    // const imgRef = await storage.refFromURL(imgUrl);
+    console.log("something");
+
+    // return await imgRef.delete();
+};

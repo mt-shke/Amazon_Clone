@@ -1,10 +1,10 @@
-import LandingBackground from "../components/UI/LandingBackground";
-import LandingCard from "../components/UI/LandingCard";
-import modeImg from "../assets/img/theme/mode.jpg";
-import prepareImg from "../assets/img/theme/prepare.jpg";
-import listenImg from "../assets/img/theme/listen.jpg";
-import audiblePromo from "../assets/img/theme/audible_promo.jpg";
+import modeImg from "../../assets/img/theme/mode.jpg";
+import prepareImg from "../../assets/img/theme/prepare.jpg";
+import listenImg from "../../assets/img/theme/listen.jpg";
+import audiblePromo from "../../assets/img/theme/audible_promo.jpg";
 import { useEffect, useState } from "react";
+import LandingBackground from "./LandingBackground";
+import LandingCard from "./LandingCard";
 
 const HomePage = () => {
     const [modal, setModal] = useState(false);
@@ -19,14 +19,20 @@ const HomePage = () => {
         .map((item, index) => <Sect key={index} />);
 
     return (
-        <main className="w-full max-w-[1520px] relative flex flex-col items-center">
+        <>
             <LandingBackground />
             <section className="grid grid-rows-2 gap-6 z-10">{newArr}</section>
             {modal && <Modal />}
-        </main>
+        </>
     );
 };
 export default HomePage;
+
+const CategoriesCard = () => {
+    return (
+        <section className="grid sm:grid md:hidden grid-cols-2 grid-rows-2"></section>
+    );
+};
 
 const Sect = () => (
     <section className="max-h-[420px] grid grid-cols-3 lg:grid-cols-3 items-center gap-6 px-4 bg-dark overflow-hidden xl:grid-cols-4">

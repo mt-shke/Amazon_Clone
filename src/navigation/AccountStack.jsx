@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { getUserFirestoreData } from "../firebase/usersCollection";
 import AccountPage from "../pages/Account/AccountPage";
 import AddAddressPage from "../pages/Account/AddAddressPage";
+import AddProductPage from "../pages/Account/AddProductPage";
 import AddressesPage from "../pages/Account/AddressesPage";
 import UpdateUserdataPage from "../pages/Account/UpdateUserdataPage";
 import DeleteAccountPage from "../pages/DeleteAccountPage";
@@ -65,6 +66,15 @@ const AccountStack = ({ user }) => {
                         path="/delete/"
                         element={
                             <DeleteAccountPage
+                                user={user}
+                                fetchUserData={fetchUserData}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/add-product/"
+                        element={
+                            <AddProductPage
                                 user={user}
                                 fetchUserData={fetchUserData}
                             />

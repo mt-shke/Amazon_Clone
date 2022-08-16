@@ -1,6 +1,6 @@
 const FooterLinks = () => {
     return (
-        <section className="bg-bg-grey flex justify-center gap-28 px-2 py-10 font-ember text-sm text-secondary">
+        <section className="hidden sm:hidden md:flex bg-bg-grey justify-center gap-28 px-2 py-10 font-ember text-sm text-secondary">
             <ul className="flex flex-col gap-1 w-[180px]">
                 <li className="text-white font-emberBold text-base mb-2 whitespace-nowrap">
                     Pour mieux nous connaître

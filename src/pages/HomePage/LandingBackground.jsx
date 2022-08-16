@@ -30,7 +30,7 @@ const LandingBackground = () => {
     return (
         <section className="relative w-full">
             <div
-                className={`${slideStyle} w-full min-w-[1000px] h-[600px] flex justfiy-center items-center absolute`}
+                className={`${slideStyle} w-full min-w-none sm:min-w-none md:min-w-[1000px] h-[600px] flex justfiy-center items-center absolute`}
             >
                 <img
                     className="w-full h-full object-cover object-center absolute"
@@ -42,13 +42,13 @@ const LandingBackground = () => {
             <div className="h-64 z-20 flex justify-between py-[1px]">
                 <button
                     onClick={leftButtonHandler}
-                    className="h-full w-20 relative grid place-items-center rounded border-white focus:border-2 focus:after:border-teal focus:after:border-2 focus:after:content-[''] focus:after:w-full focus:after:absolute focus:after:h-full"
+                    className="hidden sm:hidden md:grid h-full w-20 relative place-items-center rounded border-white focus:border-2 focus:after:border-teal focus:after:border-2 focus:after:content-[''] focus:after:w-full focus:after:absolute focus:after:h-full"
                 >
                     <HiOutlineChevronLeft size={50} color="black" />
                 </button>
                 <button
                     onClick={rightButtonHandler}
-                    className="h-full w-20 relative grid place-items-center rounded border-white focus:border-2 focus:after:border-teal focus:after:border-2 focus:after:content-[''] focus:after:w-full focus:after:absolute focus:after:h-full"
+                    className="hidden sm:hidden md:grid h-full w-20 relative place-items-center rounded border-white focus:border-2 focus:after:border-teal focus:after:border-2 focus:after:content-[''] focus:after:w-full focus:after:absolute focus:after:h-full"
                 >
                     <HiOutlineChevronRight size={50} color="black" />
                 </button>

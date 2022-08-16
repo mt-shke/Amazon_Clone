@@ -2,7 +2,7 @@ import logo from "../../assets/amazonlogo.png";
 
 const FooterCountries = () => {
     return (
-        <section className="bg-bg-grey flex flex-col gap-3 items-center w-full py-8 ">
+        <section className="hidden sm:hidden md:flex bg-bg-grey flex-col gap-3 items-center w-full py-8 ">
             <div className="w-20 flex items-center">
                 <img src={logo} alt="amazon logo" />
             </div>

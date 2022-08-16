@@ -9,9 +9,10 @@ const AccountGrid = () => {
         </section>
     );
 };
+
 export default AccountGrid;
 
-const AccountGridItem = ({ item }) => {
+export const AccountGridItem = ({ item }) => {
     return (
         <Link to={item.link ? "/account" + item.link : "/account"}>
             <article
@@ -79,14 +80,12 @@ const accountGridData = [
         title: "Cartes cadeaux",
         description:
             "Ajouter une carte cadeau, voir votre solde, ou recharger votre compte",
-
         link: "",
     },
     {
         imgUrl: "../src/assets/img/accountPage/messages.png",
         title: "Centre de messagerie",
         description: "Consulter les messages d'Amazon et des vendeurs tiers",
-
         link: "",
     },
     {
@@ -94,7 +93,6 @@ const accountGridData = [
         title: "Nous contacter",
         description:
             "Contactez notre Service Client par Téléphone, Chat ou Email",
-
         link: "",
     },
     {
@@ -105,9 +103,8 @@ const accountGridData = [
     },
     {
         imgUrl: "../src/assets/img/accountPage/contact.png",
-        title: "Votre compte",
-        description:
-            "Consulter vos données personnelles, supprimer définitivement votre compte Amazon",
+        title: "Supprimer votre compte",
+        description: "Supprimer définitivement votre compte Amazon",
         link: "/delete",
     },
 ];

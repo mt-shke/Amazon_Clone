@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 
-const Input = ({ placeholder, type, register, inputname, error }) => {
+const Input = ({
+    placeholder,
+    type,
+    register,
+    inputname,
+    error,
+    defaultValue,
+}) => {
     const [isValueVisible, setIsValueVisible] = useState(
         type === "password" ? false : true
     );
@@ -14,6 +21,7 @@ const Input = ({ placeholder, type, register, inputname, error }) => {
                     {...register(inputname)}
                     placeholder={placeholder ?? ""}
                     type={isValueVisible ? "text" : "password"}
+                    defaultValue={defaultValue ?? ""}
                 />
                 {type === "password" && (
                     <div className="absolute right-3">

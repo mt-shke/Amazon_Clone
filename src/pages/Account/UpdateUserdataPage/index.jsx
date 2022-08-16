@@ -16,7 +16,7 @@ const UpdateUserdataPage = ({ user, fetchUserData }) => {
                 </div>
 
                 <h2 className="text-3xl">Mettre à jour vos données</h2>
-                <UpdateUserdataForm user={user} />
+                <UpdateUserdataForm user={user} fetchUserData={fetchUserData} />
                 <hr className="w-full h-[1px] bg-bg-main border-none my-4" />
             </section>
         </main>

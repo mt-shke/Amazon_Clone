@@ -11,7 +11,9 @@ const HeaderCart = () => {
                 />
                 <span className="absolute top-[-6px] text-orangedark">0</span>
             </div>
-            <span className="text-sm">Panier</span>
+            <span className="hidden sm:hidden md:inline-block text-sm">
+                Panier
+            </span>
         </div>
     );
 };
