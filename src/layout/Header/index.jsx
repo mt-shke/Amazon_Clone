@@ -5,7 +5,7 @@ import DeliveryAddress from "./mobile/DeliveryAddress";
 
 const Header = ({ user }) => {
     return (
-        <header className="w-full bg-bg-dark text-white">
+        <header className="w-full bg-bg-grey sm:bg-bg-grey md:bg-bg-dark text-white">
             <HeaderTop user={user} />
             <HeaderInputMobile />
             <HeaderBottom />

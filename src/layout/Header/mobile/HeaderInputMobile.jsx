@@ -5,7 +5,7 @@ const HeaderInputMobile = () => {
     const [selection, setSelection] = useState("");
 
     return (
-        <div className="w-full flex sm:flex md:hidden h-[48px] px-1">
+        <div className="w-full flex sm:flex md:hidden h-[48px] px-1 bg-bg-grey sm:bg-bg-grey">
             <div
                 className={`relative flex w-full text-bg-dark overflow-hidden rounded-lg border-[2px] border-${
                     selection.length ? "orange" : "transparent"
