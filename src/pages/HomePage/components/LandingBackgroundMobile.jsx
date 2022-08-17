@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import watch from "../../../assets/img/square/watch.jpg";
 
 const LandingBackgroundMobile = ({ data }) => {
@@ -57,12 +58,14 @@ const LandingBackgroundMobile = ({ data }) => {
                         <span className="text-blue">Créer un compte</span>
                         {/* </Link> */}
                     </article>
-                    <article className="flex-1 p-2 bg-white font-emberLight text-sm rounded">
-                        <span>Continuez vos achats de</span>
-                        <div className="w-full">
-                            <img src={watch} alt="watch" />
-                        </div>
-                    </article>
+                    <Link to="product">
+                        <article className="flex-1 p-2 bg-white font-emberLight text-sm rounded">
+                            <span>Continuez vos achats de</span>
+                            <div className="w-full">
+                                <img src={watch} alt="watch" />
+                            </div>
+                        </article>
+                    </Link>
                 </div>
             </div>
         </section>

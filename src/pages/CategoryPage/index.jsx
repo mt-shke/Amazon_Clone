@@ -18,6 +18,8 @@ const CategoryPage = () => {
                 </div>
                 <h2 className="text-3xl">Category page</h2>
                  */}
+            <h2>Category page</h2>
+            <h2>En construction</h2>
         </section>
     );
 };

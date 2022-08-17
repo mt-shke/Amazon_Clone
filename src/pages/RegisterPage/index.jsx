@@ -37,7 +37,7 @@ const RegisterPage = () => {
 
     return (
         <main className="w-full relative flex flex-col gap-4 items-center bg-white">
-            <section className="max-w-[400px] flex flex-col items-center gap-6 z-10 py-4">
+            <section className="max-w-[400px] flex flex-col items-center gap-6 z-10 p-4">
                 <a href="/" className="w-28">
                     <img src={logo} alt="amazon logo" />
                 </a>
