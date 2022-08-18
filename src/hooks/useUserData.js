@@ -25,22 +25,6 @@ const useUserData = (user) => {
         }
     };
 
-    // const update = useCallback(async () => {
-    //     try {
-    //         if (!user) {
-    //             return;
-    //         }
-    //         const fetchedData = await getUserFirestoreData(userData.userUid);
-    //         if (!fetchedData) {
-    //             throw new Error("useUserData Error while updating");
-    //         }
-
-    //         setUserData((prev) => ({ ...prev, ...fetchedData }));
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }, [userData]);
-
     return { userData, setUserData, update };
 };
 
