@@ -30,6 +30,7 @@ const HomeStack = ({ user }) => {
                 />
                 <Route path="/category//*" element={<CategoryPage />} />
                 <Route path="/product//*" element={<ProductPage />} />
+                <Route path="*" element={<div>Bad route, nothing here</div>} />
             </Routes>
 
             <Footer />

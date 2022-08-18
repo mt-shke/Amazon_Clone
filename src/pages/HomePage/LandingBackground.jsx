@@ -1,30 +1,38 @@
-import pogmentary from "../../assets/img/bg/pogmentary.jpg";
-import rentree from "../../assets/img/bg/rentree.jpg";
-import toys from "../../assets/img/bg/toys.jpg";
-import ship from "../../assets/img/bg/ship.jpg";
 import { HiOutlineChevronLeft } from "react-icons/hi";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { useEffect, useState } from "react";
 
-const LandingBackground = () => {
-    const imgs = [pogmentary, rentree, toys, ship];
+const LandingBackground = ({ backgrounds }) => {
+    const imgs = [...backgrounds];
     const [imgIndex, setImgIndex] = useState(0);
     const [slideStyle, setSlideStyle] = useState("");
 
     useEffect(() => {
+        const interval = setInterval(() => {
+            slideRight();
+        }, 8000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+
+    const slideLeft = () => {
+        setImgIndex((p) => (p === 0 ? 3 : p - 1));
+        setSlideStyle("animate-slide-left");
+        clearSlide();
+    };
+
+    const slideRight = () => {
+        setImgIndex((p) => (p === 3 ? 0 : p + 1));
+        setSlideStyle("animate-slide-right");
+        clearSlide();
+    };
+
+    const clearSlide = () => {
         setTimeout(() => {
             setSlideStyle("");
         }, 200);
-    }, [slideStyle]);
-
-    const leftButtonHandler = () => {
-        setImgIndex((p) => (p === 0 ? 3 : p - 1));
-        setSlideStyle("animate-slide-left");
-    };
-
-    const rightButtonHandler = () => {
-        setImgIndex((p) => (p === 3 ? 0 : p + 1));
-        setSlideStyle("animate-slide-right");
     };
 
     return (
@@ -41,13 +49,13 @@ const LandingBackground = () => {
             </div>
             <div className="h-64 z-20 flex justify-between py-[1px]">
                 <button
-                    onClick={leftButtonHandler}
+                    onClick={slideLeft}
                     className="hidden sm:hidden md:grid h-full w-20 relative place-items-center rounded border-white focus:border-2 focus:after:border-teal focus:after:border-2 focus:after:content-[''] focus:after:w-full focus:after:absolute focus:after:h-full"
                 >
                     <HiOutlineChevronLeft size={50} color="black" />
                 </button>
                 <button
-                    onClick={rightButtonHandler}
+                    onClick={slideRight}
                     className="hidden sm:hidden md:grid h-full w-20 relative place-items-center rounded border-white focus:border-2 focus:after:border-teal focus:after:border-2 focus:after:content-[''] focus:after:w-full focus:after:absolute focus:after:h-full"
                 >
                     <HiOutlineChevronRight size={50} color="black" />

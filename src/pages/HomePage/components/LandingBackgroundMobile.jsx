@@ -1,46 +1,67 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import watch from "../../../assets/img/watch/img_0.jpg";
 
 const LandingBackgroundMobile = ({ data }) => {
-    const imgs = [...data];
-    const [imgIndex, setImgIndex] = useState(0);
-    const [slideStyle, setSlideStyle] = useState("");
+    const [currentImg, setCurrentImg] = useState(0);
+    const [slideDirection, setSlideDirection] = useState("");
+    const ref = useRef(null);
+    let touchStart;
 
     useEffect(() => {
+        const containerRef = ref.current;
+        containerRef.addEventListener("touchstart", handleTouchStart);
+        containerRef.addEventListener("touchend", handleTouchEnd);
+        const interval = setInterval(() => {
+            swipeRight();
+        }, 10000);
+
         return () => {
-            setInterval(() => {
-                slideRight();
-            }, 5000);
+            containerRef.removeEventListener("touchstart", handleTouchStart);
+            containerRef.removeEventListener("touchend", handleTouchEnd);
+            clearInterval(interval);
         };
-    }, [imgIndex]);
-
-    const slideRight = () => {
-        setImgIndex((p) => (p === 3 ? 0 : p + 1));
-        setSlideStyle("animate-slide-right");
-        setTimeout(() => {
-            setSlideStyle("");
-        }, 1000);
+    }, []);
+    const handleTouchStart = (e) => {
+        touchStart = e.changedTouches[0].pageX;
     };
 
-    const leftButtonHandler = () => {
-        setImgIndex((p) => (p === 0 ? 3 : p - 1));
-        setSlideStyle("animate-slide-left");
+    const clearSlideDirection = () => {
+        setTimeout(() => setSlideDirection((p) => ""), 300);
     };
 
-    const rightButtonHandler = () => {
-        setImgIndex((p) => (p === 3 ? 0 : p + 1));
-        setSlideStyle("animate-slide-right");
+    const handleTouchEnd = (e) => {
+        const touchEnd = e.changedTouches[0].pageX;
+        const swipeDistance = touchEnd - touchStart;
+        if (swipeDistance >= 50) {
+            swipeLeft();
+        }
+        if (swipeDistance <= -50) {
+            swipeRight();
+        }
+    };
+
+    const swipeLeft = () => {
+        setCurrentImg((p) => (p === 0 ? data.length - 1 : p - 1));
+        setSlideDirection((p) => "left");
+        clearSlideDirection();
+    };
+
+    const swipeRight = () => {
+        setCurrentImg((p) => (p === data.length - 1 ? 0 : p + 1));
+        setSlideDirection((p) => "right");
+        clearSlideDirection();
     };
 
     return (
         <section className="relative w-full">
             <div
-                className={`${slideStyle} relative w-full aspect-square flex justfiy-center items-center pb-20`}
+                ref={ref}
+                className={`relative w-full aspect-square flex justfiy-center items-center pb-20`}
             >
                 <img
-                    className="w-full aspect-square"
-                    src={imgs[imgIndex]}
+                    className={`w-full aspect-square animate-slide-${slideDirection}`}
+                    src={data[currentImg]}
                     alt="background image"
                 />
                 <div className="absolute h-[50%] bottom-0 w-full bg-gradient-to-b from-transparent via-bg-main to-bg-main"></div>

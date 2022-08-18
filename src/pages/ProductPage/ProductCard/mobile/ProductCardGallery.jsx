@@ -8,28 +8,6 @@ const ProductCardGallery = ({ data }) => {
     const [slideDirection, setSlideDirection] = useState("");
 
     let touchStart;
-    const handleTouchStart = (e) => {
-        touchStart = e.changedTouches[0].pageX;
-    };
-
-    const handleTouchEnd = (e) => {
-        const touchEnd = e.changedTouches[0].pageX;
-        const swipeDistance = touchEnd - touchStart;
-        if (swipeDistance >= 150) {
-            setCurrentImg((p) => (p === 0 ? data.images.length - 1 : p - 1));
-            setSlideDirection((p) => "left");
-            setTimeout(() => {
-                setSlideDirection("");
-            }, 300);
-        }
-        if (swipeDistance <= -150) {
-            setCurrentImg((p) => (p === data.images.length - 1 ? 0 : p + 1));
-            setSlideDirection((p) => "right");
-            setTimeout(() => {
-                setSlideDirection("");
-            }, 300);
-        }
-    };
 
     useEffect(() => {
         const containerRef = ref.current;
@@ -41,24 +19,56 @@ const ProductCardGallery = ({ data }) => {
         ];
     }, []);
 
+    const handleTouchStart = (e) => {
+        touchStart = e.changedTouches[0].pageX;
+    };
+
+    const handleTouchEnd = (e) => {
+        const touchEnd = e.changedTouches[0].pageX;
+        const swipeDistance = touchEnd - touchStart;
+        if (swipeDistance >= 50) {
+            setCurrentImg((p) => (p === 0 ? data.images.length - 1 : p - 1));
+            setSlideDirection((p) => "left");
+            clearSlideDirection();
+        }
+        if (swipeDistance <= -50) {
+            setCurrentImg((p) => (p === data.images.length - 1 ? 0 : p + 1));
+            setSlideDirection((p) => "right");
+            clearSlideDirection();
+        }
+    };
+
+    const handleImageWithDot = (index) => {
+        if (currentImg === index) return;
+        setCurrentImg((p) => index);
+        setSlideDirection((p) => (currentImg < index ? "right" : "left"));
+        setTimeout(() => {
+            setSlideDirection("");
+        }, 300);
+    };
+
+    const clearSlideDirection = () =>
+        setTimeout(() => {
+            setSlideDirection("");
+        }, 300);
+
     return (
         <section className="flex flex-col items-center">
             <div
                 ref={ref}
-                className={`w-full aspect-square grid place-items-center overflow-hidden`}
+                className={`w-full max-h-[400px] aspect-square grid place-items-center overflow-hidden`}
             >
                 <SlideImg
                     slideStyle={`animate-slide-${slideDirection}`}
                     src={data.images[currentImg]}
                     alt={data.name}
                 />
-                <img className="w-full object-fill" />
             </div>
             <div className="flex gap-2 my-4">
                 {!!data.images.length &&
                     data.images.map((elem, index) => (
                         <span
-                            onClick={() => setCurrentImg(index)}
+                            onClick={() => handleImageWithDot(index)}
                             key={index}
                             className={`${
                                 index === currentImg
@@ -77,7 +87,7 @@ export default ProductCardGallery;
 const SlideImg = ({ src, slideStyle, alt }) => {
     return (
         <img
-            className={`${slideStyle} w-full object-fill`}
+            className={`${slideStyle} w-full max-w-[400px] object-fill`}
             src={src}
             alt={alt}
         />

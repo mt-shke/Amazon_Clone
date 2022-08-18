@@ -1,4 +1,13 @@
 import { Link } from "react-router-dom";
+import imgCommand from "../../../assets/img/accountPage/commands.png";
+import imgSecurity from "../../../assets/img/accountPage/security.png";
+import imgPrime from "../../../assets/img/accountPage/prime.png";
+import imgAddress from "../../../assets/img/accountPage/address.png";
+import imgPayment from "../../../assets/img/accountPage/payment.png";
+import imgGiftCard from "../../../assets/img/accountPage/gift_card.png";
+import imgMessages from "../../../assets/img/accountPage/messages.png";
+import imgContact from "../../../assets/img/accountPage/contact.png";
+import imgMobileApp from "../../../assets/img/accountPage/mobile_app.png";
 
 const AccountGrid = () => {
     return (
@@ -40,27 +49,26 @@ export const AccountGridItem = ({ item }) => {
 
 const accountGridData = [
     {
-        imgUrl: "../src/assets/img/accountPage/commands.png",
+        imgUrl: imgCommand,
         title: "Vos commandes",
         description: "Suivre, retourner ou acheter à nouveau",
         link: "",
     },
     {
-        imgUrl: "../src/assets/img/accountPage/security.png",
+        imgUrl: imgSecurity,
         title: "Connexion & sécurité",
         description:
             "Modifier l'adresse e-mail, le nom et le numéro de téléphone mobile",
         link: "/update-user-data",
     },
     {
-        imgUrl: "../src/assets/img/accountPage/prime.png",
+        imgUrl: imgPrime,
         title: "Prime",
         description: "Voir les avantages et les paramètres de paiement",
-
         link: "",
     },
     {
-        imgUrl: "../src/assets/img/accountPage/address.png",
+        imgUrl: imgAddress,
         title: "Adresses",
         description:
             "Modifier les adresses et les préférences de livraison des commandes et des cadeaux",
@@ -68,7 +76,7 @@ const accountGridData = [
         link: "/addresses",
     },
     {
-        imgUrl: "../src/assets/img/accountPage/payment.png",
+        imgUrl: imgPayment,
         title: "Vos paiements",
         description:
             "Afficher toutes les transactions, gérer les modes de paiement et les paramètres",
@@ -76,33 +84,33 @@ const accountGridData = [
         link: "",
     },
     {
-        imgUrl: "../src/assets/img/accountPage/gift_card.png",
+        imgUrl: imgGiftCard,
         title: "Cartes cadeaux",
         description:
             "Ajouter une carte cadeau, voir votre solde, ou recharger votre compte",
         link: "",
     },
     {
-        imgUrl: "../src/assets/img/accountPage/messages.png",
+        imgUrl: imgMessages,
         title: "Centre de messagerie",
         description: "Consulter les messages d'Amazon et des vendeurs tiers",
         link: "",
     },
     {
-        imgUrl: "../src/assets/img/accountPage/contact.png",
+        imgUrl: imgContact,
         title: "Nous contacter",
         description:
             "Contactez notre Service Client par Téléphone, Chat ou Email",
         link: "",
     },
     {
-        imgUrl: "../src/assets/img/accountPage/mobile_app.png",
+        imgUrl: imgMobileApp,
         title: "Application Mobile",
         description: "Télécharger l'application Amazon",
         link: "",
     },
     {
-        imgUrl: "../src/assets/img/accountPage/contact.png",
+        imgUrl: imgContact,
         title: "Supprimer votre compte",
         description: "Supprimer définitivement votre compte Amazon",
         link: "/delete",

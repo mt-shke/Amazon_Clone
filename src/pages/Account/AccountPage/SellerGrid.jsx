@@ -1,4 +1,5 @@
 import { AccountGridItem } from "./AccountGrid";
+import imgCommand from "../../../assets/img/accountPage/commands.png";
 
 const SellerGrid = () => {
     return (
@@ -14,7 +15,7 @@ export default SellerGrid;
 
 const sellerItems = [
     {
-        imgUrl: "../src/assets/img/accountPage/commands.png",
+        imgUrl: imgCommand,
         title: "Ajouter un produit",
         description: "Ajouter un produit",
         link: "/add-product",

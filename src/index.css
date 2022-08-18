@@ -85,30 +85,7 @@
         scrollbar-width: none; /* Firefox */
     }
 
-    /* .scrollbar::-webkit-scrollbar {
-        width: 01px;
-        height: 01px;
+    .galleryBoxShadow {
+        box-shadow: 1px 1px 2px 0.5px orange, -1px -1px 2px 0.5px orange;
     }
-
-    .scrollbar::-webkit-scrollbar-track {
-        border-radius: 100vh;
-        background: #f7f4ed;
-    }
-
-    .scrollbar::-webkit-scrollbar-thumb {
-        background: #e0cbcb;
-        border-radius: 100vh;
-        border: 3px solid #f6f7ed;
-    }
-
-    .scrollbar::-webkit-scrollbar-thumb:hover {
-        background: #c0a0b9;
-    } */
 }
-
-/* @font-face {
-    font-family: "GoldmanBold";
-    src: local("GoldmanBold"),
-        url("./fonts/Goldman/Goldman-Bold.ttf") format("truetype");
-    font-weight: bold;
-} */

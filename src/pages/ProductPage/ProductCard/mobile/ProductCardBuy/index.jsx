@@ -1,6 +1,6 @@
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import BuyButton from "../../../../components/UI/buttons/BuyButton";
 import ProductCardStock from "./ProductCardStock";
+import BuyButton from "../../../../../components/UI/buttons/BuyButton";
 
 const ProductCardBuy = ({ data }) => {
     const price = data.delivery.price === 0 ? "GRATUITE" : data.delivery.price;

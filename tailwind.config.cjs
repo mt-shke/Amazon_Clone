@@ -53,8 +53,8 @@ module.exports = {
                 xxs: [".65rem", ".7rem"],
             },
             animation: {
-                "slide-left": "slide-left .2s linear",
-                "slide-right": "slide-right .2s linear",
+                "slide-left": "slide-left .15s linear",
+                "slide-right": "slide-right .15s linear",
                 fadeIn: "fadeIn .2s ease-out",
                 spin: "spin 1s linear infinite",
             },

@@ -11,9 +11,15 @@ import CategorySquareCard from "./components/CategorySquareCard";
 import LandingBackgroundMobile from "./components/LandingBackgroundMobile";
 import SectionCards from "./components/SectionCards";
 import LandingBackground from "./LandingBackground";
+import pogmentary from "../../assets/img/bg/pogmentary.jpg";
+import rentree from "../../assets/img/bg/rentree.jpg";
+import toys from "../../assets/img/bg/toys.jpg";
+import ship from "../../assets/img/bg/ship.jpg";
+import alexa from "../../assets/img/bg/bg_alexa.jpg";
 
 const HomePage = () => {
     const [modal, setModal] = useState(false);
+    const backgrounds = [alexa, pogmentary, rentree, toys, ship];
 
     useEffect(() => {
         setTimeout(() => {
@@ -28,7 +34,7 @@ const HomePage = () => {
     return (
         <main className="w-full max-w-[1520px] relative flex flex-col gap-2 items-center">
             <div className="hidden sm:hidden flex-col w-full md:flex">
-                <LandingBackground />
+                <LandingBackground backgrounds={backgrounds} />
                 <section className="grid grid-rows-2 gap-6 z-10">
                     {newArr}
                 </section>
@@ -36,6 +42,7 @@ const HomePage = () => {
             </div>
 
             <div className="flex flex-col w-full sm:flex md:hidden gap-2">
+                {/* <LandingBackgroundMobile data={landingBgMobile} /> */}
                 <LandingBackgroundMobile data={landingBgMobile} />
                 <CategorySquareCard data={paymentsCategory} />
                 <CategoryFullCard data={primeCategory} />

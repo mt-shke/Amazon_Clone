@@ -11,7 +11,7 @@ const HeaderAddress = ({ user }) => {
                 <span className="font-emberBold text-sm whitespace-nowrap">
                     {user?.defaultAddress
                         ? `${user.defaultAddress.zipCode} ${user.defaultAddress.city}`
-                        : "13245 CityName"}
+                        : "Entrez votre adresse"}
                 </span>
             </div>
         </div>

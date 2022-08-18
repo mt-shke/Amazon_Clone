@@ -5,6 +5,15 @@ import descriptionImg2 from "../../assets/img/watch/descriptionImg_2.jpg";
 import descriptionImg3 from "../../assets/img/watch/descriptionImg_3.jpg";
 import descriptionImg4 from "../../assets/img/watch/descriptionImg_4.jpg";
 import descriptionImg5 from "../../assets/img/watch/descriptionImg_5.jpg";
+import descriptionDesktopImg0 from "../../assets/img/watch/descriptionDesktopImg_0.jpg";
+import descriptionDesktopImg1 from "../../assets/img/watch/descriptionDesktopImg_1.jpg";
+import descriptionDesktopImg2 from "../../assets/img/watch/descriptionDesktopImg_2.jpg";
+import descriptionDesktopImg3 from "../../assets/img/watch/descriptionDesktopImg_3.jpg";
+import descriptionDesktopImg4 from "../../assets/img/watch/descriptionDesktopImg_4.jpg";
+import descriptionDesktopImg5 from "../../assets/img/watch/descriptionDesktopImg_5.jpg";
+import descriptionDesktopImg6 from "../../assets/img/watch/descriptionDesktopImg_6.jpg";
+import descriptionDesktopImg7 from "../../assets/img/watch/descriptionDesktopImg_7.jpg";
+import descriptionDesktopImg8 from "../../assets/img/watch/descriptionDesktopImg_8.jpg";
 import img0 from "../../assets/img/watch/img_0.jpg";
 import img1 from "../../assets/img/watch/img_1.jpg";
 import img2 from "../../assets/img/watch/img_2.jpg";
@@ -18,16 +27,19 @@ const ProductPage = () => {
         title: "Apple Watch Series 7 (GPS) Boîtier en Aluminium Minuit de 41 mm, Bracelet Sport Minuit - Regular",
         category: "high-tech",
         rating: 4.6,
-        reviews: [
-            { one: "One review" },
-            { one: "One review" },
-            { one: "One review" },
-        ],
-        numOfReviews: 2116,
         price: 39900,
         fullPrice: 42900,
         amazonChoice: true,
         seller: "Amazon",
+        reviews: {
+            list: [
+                { one: "One review" },
+                { one: "One review" },
+                { one: "One review" },
+            ],
+            responses: 94,
+            numOfReviews: 2116,
+        },
         images: [img0, img1, img2, img3, img4, img5],
         specifications: {
             couleur: "Aluminium: Minuit",
@@ -35,7 +47,14 @@ const ProductPage = () => {
             taille: "41mm - Convient aux poignets",
             configuration: "Sans AppleCare+",
         },
-        availableColors: [""],
+        productColors: [
+            {
+                type: "aluminium",
+                color: "",
+                imageUrl: "",
+                colorQuantity: 0,
+            },
+        ],
         quantity: 23,
         delivery: {
             price: 0,
@@ -51,6 +70,17 @@ const ProductPage = () => {
             descriptionImg3,
             descriptionImg4,
             descriptionImg5,
+        ],
+        descriptionImagesDesktop: [
+            descriptionDesktopImg0,
+            descriptionDesktopImg1,
+            descriptionDesktopImg2,
+            descriptionDesktopImg3,
+            descriptionDesktopImg4,
+            descriptionDesktopImg5,
+            descriptionDesktopImg6,
+            descriptionDesktopImg7,
+            descriptionDesktopImg8,
         ],
         box: {
             "Contenu du carton":
@@ -104,7 +134,7 @@ const ProductPage = () => {
         },
     };
     return (
-        <main className="w-full max-w-[1520px] bg-bg-main relative flex flex-col items-center">
+        <main className="w-full max-w-[1520px] bg-white relative flex flex-col items-center overflow-x-scroll">
             {/* <HeaderPageLinks links={["visiter la boutique d'Apple"]} /> */}
             <ProductCard data={productData} />
         </main>

@@ -8,7 +8,11 @@ const ProductCardDescriptionImages = ({ data }) => {
                 {!!data.descriptionImages.length &&
                     data.descriptionImages.map((elem, index) => (
                         <div key={uuidv4()}>
-                            <img src={elem} alt={data.name} />
+                            <img
+                                className="w-full"
+                                src={elem}
+                                alt={data.name}
+                            />
                         </div>
                     ))}
             </div>

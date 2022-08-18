@@ -1,5 +1,5 @@
 import { MdArrowDropDown } from "react-icons/md";
-import img from "../../../assets/img/theme/listen.jpg";
+import img from "../../../../assets/img/theme/listen.jpg";
 
 const ProductCardPaymentType = () => {
     return (
