@@ -1,4 +1,5 @@
 import { MdArrowDropDown } from "react-icons/md";
+import { AiFillInfoCircle } from "react-icons/ai";
 import { getFormatedPriceWithComma } from "../../../utils";
 
 const ProductCardPrice = ({ data }) => {
@@ -16,12 +17,13 @@ const ProductCardPrice = ({ data }) => {
                 </h3>
             </div>
 
-            <span className="text-sm opacity-70">
+            <span className="text-sm opacity-70 flex gap-1">
                 Prix conseillé:{" "}
-                <span className="todo">{formatedFullPrice}€</span> i{" "}
+                <span className="line-through">{formatedFullPrice}€</span>
+                <AiFillInfoCircle color="grey" size={18} />
             </span>
             <span className="block">
-                {`&`} <span className="text-blue">Retours GRATUITS</span>{" "}
+                {`&`} <span className="text-blue">Retours GRATUITS</span>
                 <MdArrowDropDown className="inline" color="black" size={18} />
             </span>
             <span className="block">Tous les pris incluent la TVA.</span>

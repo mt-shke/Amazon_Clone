@@ -19,12 +19,12 @@ const LandingBackground = () => {
 
     const leftButtonHandler = () => {
         setImgIndex((p) => (p === 0 ? 3 : p - 1));
-        setSlideStyle("animate-slide-l");
+        setSlideStyle("animate-slide-left");
     };
 
     const rightButtonHandler = () => {
         setImgIndex((p) => (p === 3 ? 0 : p + 1));
-        setSlideStyle("animate-slide-r");
+        setSlideStyle("animate-slide-right");
     };
 
     return (

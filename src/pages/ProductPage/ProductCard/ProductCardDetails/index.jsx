@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
 const ProductCardDetails = ({ data }) => {
-    // todo1 details techniques page
+    // todo1 detailsTechniquesPage
     return (
         <section className="bg-white px-3 py-4 flex flex-col gap-3">
             <div>
@@ -9,7 +9,7 @@ const ProductCardDetails = ({ data }) => {
                     Détails & caractéristiques
                 </h3>
                 <ul className="list-disc px-4">
-                    {data.details.map((elem, index) => (
+                    {data.details.detailsList.map((elem, index) => (
                         <li key={uuidv4()}>{elem}</li>
                     ))}
                 </ul>
@@ -19,7 +19,7 @@ const ProductCardDetails = ({ data }) => {
                     Informations sur le produit
                 </h3>
                 <div className="border-t-[1px] border-secondary">
-                    {Object.entries(data.productInformations)
+                    {Object.entries(data.details.productInformations)
                         .map((elem) => ({ key: elem[0], value: elem[1] }))
                         .map((item) => (
                             <div
@@ -41,7 +41,7 @@ const ProductCardDetails = ({ data }) => {
                     Informations complémentaires
                 </h3>
                 <div className="border-[1px] border-secondary">
-                    {Object.entries(data.technicalsDetails)
+                    {Object.entries(data.details.technicalsDetails)
                         .map((elem) => ({ key: elem[0], value: elem[1] }))
                         .map(
                             (item, index) =>

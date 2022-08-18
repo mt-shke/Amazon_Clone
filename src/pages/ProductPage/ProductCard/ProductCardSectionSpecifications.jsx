@@ -33,7 +33,7 @@ const Specs = ({ detail, data }) => (
         </div>
         {detail.key === "couleur" && (
             <div className="w-10">
-                <img src={data.images.main} alt={data.title} />
+                <img src={data.images[0]} alt={data.title} />
             </div>
         )}
         <MdArrowDropDown className="inline mr-0" color="black" size={18} />

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MdArrowDropDown } from "react-icons/md";
+import { MdArrowDropDown, MdKeyboardArrowRight } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 import Button from "../../../components/UI/buttons/Button";
 import { Link } from "react-router-dom";
@@ -32,11 +32,19 @@ const HeaderLogin = ({ user }) => {
                         <MdArrowDropDown color="lightgrey" size={18} />
                     </div>
                 </div>
-                <div className="flex sm:flex md:hidden items-baseline gap-2">
-                    <span className="font-emberBold text-base whitespace-nowrap">
-                        {user
-                            ? `Bonjour ${user.firstname ?? ""}`
-                            : "Se connecter"}
+                <div className="flex sm:flex md:hidden items-center gap-1">
+                    <span className="font-emberBold text-sm whitespace-nowrap">
+                        {user ? (
+                            `Bonjour ${user.firstname ?? ""}`
+                        ) : (
+                            <span className="flex items-center">
+                                Se connecter
+                                <MdKeyboardArrowRight
+                                    color="lightgrey"
+                                    size={14}
+                                />
+                            </span>
+                        )}
                     </span>
 
                     <FaRegUser color="lightgrey" size={18} />

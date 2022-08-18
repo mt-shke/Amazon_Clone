@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import watch from "../../../assets/img/square/watch.jpg";
+import watch from "../../../assets/img/watch/img_0.jpg";
 
 const LandingBackgroundMobile = ({ data }) => {
     const imgs = [...data];
@@ -17,7 +17,7 @@ const LandingBackgroundMobile = ({ data }) => {
 
     const slideRight = () => {
         setImgIndex((p) => (p === 3 ? 0 : p + 1));
-        setSlideStyle("animate-slide-r");
+        setSlideStyle("animate-slide-right");
         setTimeout(() => {
             setSlideStyle("");
         }, 1000);
@@ -25,12 +25,12 @@ const LandingBackgroundMobile = ({ data }) => {
 
     const leftButtonHandler = () => {
         setImgIndex((p) => (p === 0 ? 3 : p - 1));
-        setSlideStyle("animate-slide-l");
+        setSlideStyle("animate-slide-left");
     };
 
     const rightButtonHandler = () => {
         setImgIndex((p) => (p === 3 ? 0 : p + 1));
-        setSlideStyle("animate-slide-r");
+        setSlideStyle("animate-slide-right");
     };
 
     return (
@@ -44,7 +44,6 @@ const LandingBackgroundMobile = ({ data }) => {
                     alt="background image"
                 />
                 <div className="absolute h-[50%] bottom-0 w-full bg-gradient-to-b from-transparent via-bg-main to-bg-main"></div>
-
                 <div className="w-full absolute bottom-0 flex flex-row pl-2 gap-2">
                     <article className="w-3/5 p-2 bg-white font-emberLight text-sm rounded">
                         <h2 className="text-xl font-emberBold">Bienvenue</h2>
