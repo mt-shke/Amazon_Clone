@@ -17,7 +17,7 @@ import ProductCardDesktopTechnicalsDetails from "./desktop/ProductCardDesktopTec
 import ProductCardDesktopDescriptionImages from "./desktop/ProductCardDesktopDescriptionImages";
 
 const ProductCard = ({ data }) => {
-    const { mobile, desktop } = useResponsive();
+    const { mobile } = useResponsive();
 
     if (mobile) {
         return (

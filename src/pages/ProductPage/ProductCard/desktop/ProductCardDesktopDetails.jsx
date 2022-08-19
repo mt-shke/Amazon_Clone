@@ -12,7 +12,7 @@ const ProductCardDesktopDetails = ({ data }) => {
                     À propos de cet article
                 </h3>
                 <ul className="list-disc px-4">
-                    {data.details.detailsList.map((elem, index) => (
+                    {data.details.detailsList.map((elem) => (
                         <li key={uuidv4()}>{elem}</li>
                     ))}
                 </ul>

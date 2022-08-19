@@ -10,7 +10,7 @@ const LandingBackground = ({ backgrounds }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             slideRight();
-        }, 8000);
+        }, 20000);
 
         return () => {
             clearInterval(interval);
