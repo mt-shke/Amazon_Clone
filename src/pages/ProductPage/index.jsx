@@ -134,7 +134,7 @@ const ProductPage = () => {
         },
     };
     return (
-        <main className="w-full max-w-[1520px] bg-white relative flex flex-col items-center overflow-x-scroll">
+        <main className="w-full bg-white relative flex flex-col items-center">
             {/* <HeaderPageLinks links={["visiter la boutique d'Apple"]} /> */}
             <ProductCard data={productData} />
         </main>

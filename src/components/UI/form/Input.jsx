@@ -17,7 +17,9 @@ const Input = ({
         <>
             <div className="relative flex items-center w-full">
                 <input
-                    className="w-full border-[1px] border-secondary rounded focus:outline-none text-base font-emberCondensed px-2 py-1"
+                    className={`w-full border-[1px] border-secondary rounded focus:outline-none text-base font-emberCondensed px-2 py-1 ${
+                        type === "password" ? "pr-8" : ""
+                    }`}
                     {...register(inputname)}
                     placeholder={placeholder ?? ""}
                     type={isValueVisible ? "text" : "password"}

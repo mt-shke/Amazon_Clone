@@ -21,7 +21,7 @@ const ProductCard = ({ data }) => {
 
     if (mobile) {
         return (
-            <article className="flex flex-col bg-bg-main gap-2">
+            <article className="flex flex-col bg-bg-main gap-3">
                 <section className="bg-white">
                     <section className="p-2">
                         <span className="text-blue">
@@ -56,7 +56,7 @@ const ProductCard = ({ data }) => {
     }
 
     return (
-        <article className="flex flex-col w-[968px] my-6">
+        <article className="flex flex-col w-[968px] py-6">
             <section className="bg-white flex gap-4">
                 <ProductCardDesktopGallery data={data} />
                 <section className="p-2 min-w-[400px] flex flex-auto flex-col">

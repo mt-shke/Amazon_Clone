@@ -23,8 +23,8 @@ const NavBarLinks = () => {
         <nav className="w-full h-full flex items-center">
             <ul className="flex flex-1">
                 {links.map((link, index) => (
-                    <li className="flex flex-1" key={index}>
-                        <a className="flex flex-1 hover:cursor-pointer px-2 py-1 hover:outline hover:outline-[1px] outline-white">
+                    <li className="flex flex-none" key={index}>
+                        <a className="flex flex-none hover:cursor-pointer px-2 py-1 hover:outline hover:outline-[1px] outline-white">
                             <span className="whitespace-nowrap text-sm font-ember">
                                 {link}
                             </span>

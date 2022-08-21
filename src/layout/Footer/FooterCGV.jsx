@@ -5,9 +5,13 @@ const FooterCGV = () => {
                 <li className="whitespace-nowrap hover:underline">
                     <a href="">Conditions générales de vente</a>
                 </li>
-                <li className="whitespace-nowrap hover:underline flex gap-2 md:gap-4">
-                    <a href="">Vos informations personnelles</a>
-                    <a href="">Cookies</a>
+                <li className="whitespace-nowrap flex gap-2 md:gap-4">
+                    <a className="hover:underline " href="">
+                        Vos informations personnelles
+                    </a>
+                    <a className="hover:underline " href="">
+                        Cookies
+                    </a>
                 </li>
                 <li className="whitespace-nowrap hover:underline">
                     <a href="">Annonces basées sur vos centres d’intérêt</a>
