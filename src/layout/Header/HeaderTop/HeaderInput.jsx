@@ -10,11 +10,11 @@ const HeaderInput = () => {
         <div
             className={`hidden sm:hidden md:flex w-full min-w-[280px] text-bg-dark overflow-hidden rounded-md border-[3px] border-${
                 focus ? "orange" : "transparent"
-            } outline-none"
+            } outline-none text-sm"
             }`}
         >
             <div
-                className={`hidden sm:hidden md:flex relative z-10 flex-row items-center gap-1 px-2 flex-initial w-fit bg-bg-mainlight text-sm font-emberDisplay hover:cursor-pointer`}
+                className={`hidden sm:hidden md:flex relative z-10 flex-row items-center gap-1 px-2 flex-initial w-fit bg-bg-mainlight hover:bg-gray-300 text-xs font-emberDisplay hover:cursor-pointer`}
             >
                 <span className="block whitespace-nowrap">
                     {selection ? selection : ddOptions[0]}
@@ -27,11 +27,11 @@ const HeaderInput = () => {
                         e.target.blur(),
                         e.target.parentNode.nextSibling.focus(),
                     ]}
-                    className="absolute px-1 left-0 bottom-0 bg-transparent text-transparent flex flex-row flex-initial w-full h-full bg-bg-orange text-sm font-ember hover:cursor-pointer outline-none border-[3px] border-transparent focus:border-orange rounded"
+                    className="absolute px-1 inset-0 bg-transparent text-transparent flex w-full h-full bg-bg-orange font-ember hover:cursor-pointer outline-none border-[3px] border-transparent focus:border-orangedark rounded-l-md"
                 >
                     {ddOptions.map((opt, index) => (
                         <option
-                            className="text-black text-base font-emberCondensedLight"
+                            className="text-black text-sm bg-bg-main font-emberDisplay"
                             key={index}
                         >{`${opt}`}</option>
                     ))}
@@ -42,9 +42,9 @@ const HeaderInput = () => {
                 onFocus={() => setFocus((p) => true)}
                 onBlur={() => setFocus((p) => false)}
                 type="text"
-                className="w-full px-2 text-sm outline-none font-emberDisplay"
+                className="w-full px-2 text-base outline-none font-emberDisplay"
             />
-            <div className="p-2 grid place-items-center font-bold text-bg-dark bg-orange">
+            <div className="p-2 grid place-items-center font-bold text-bg-dark bg-orange hover:cursor-pointer hover:bg-orangedark">
                 <AiOutlineSearch size={22} />
             </div>
         </div>
@@ -81,4 +81,25 @@ const ddOptions = [
     "Cuisine & Maison",
     "DVD & Blu-ray",
     "Epicerie",
+    "Jardin",
+    "Jeux et Jouets",
+    "Jeux vidéo",
+    "Livres",
+    "Livres audio Audible",
+    "Logiciels",
+    "Luminaires et Eclairage",
+    "Luxury Stores",
+    "Mode",
+    "Moins de 10€",
+    "Monoprix",
+    "Montres",
+    "Musique : CD & Vinyles",
+    "Musique classique",
+    "Prime Video",
+    "Jardin",
+    "Prévoyez et Economisez",
+    "Secteur industriel et scientifique",
+    "Sports et Loisirs",
+    "Téléchargement de musique",
+    "Vêtements et accessoires",
 ];

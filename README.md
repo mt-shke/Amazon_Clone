@@ -134,8 +134,12 @@ export default defineConfig({
 ```
 
 ```js
-// responsive homePageexample - ok
-// responsive accountPages - ok
+// basket
+// commands to Db
+```
+
+```js
+// reviews
 ```
 
 </details>
