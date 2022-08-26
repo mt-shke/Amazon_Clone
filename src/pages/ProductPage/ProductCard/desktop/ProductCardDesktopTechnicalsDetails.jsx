@@ -11,9 +11,6 @@ const ProductCardDesktopTechnicalsDetails = ({ data }) => {
         (elem, index) => index >= (detailsArray.length - 1) / 2
     );
 
-    console.log("first part is", firstPart);
-    console.log("sec part is", secondPart);
-
     return (
         <section className="my-8">
             <h2 className="text-4xl font-ember text-center my-6">

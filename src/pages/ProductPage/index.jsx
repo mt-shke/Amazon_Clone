@@ -25,7 +25,7 @@ const ProductPage = () => {
     const productData = {
         name: "Apple Watch Series 7 (GPS)",
         title: "Apple Watch Series 7 (GPS) Boîtier en Aluminium Minuit de 41 mm, Bracelet Sport Minuit - Regular",
-        category: "high-tech",
+        category: ["high-tech"],
         rating: 4.6,
         price: 39900,
         fullPrice: 42900,

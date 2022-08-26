@@ -27,7 +27,7 @@ const HeaderInput = () => {
                         e.target.blur(),
                         e.target.parentNode.nextSibling.focus(),
                     ]}
-                    className="absolute px-1 inset-0 bg-transparent text-transparent flex w-full h-full bg-bg-orange font-ember hover:cursor-pointer outline-none border-[3px] border-transparent focus:border-orangedark rounded-l-md"
+                    className="absolute px-1 inset-0 bg-transparent text-transparent flex w-full h-full bg-bg-orange font-ember hover:cursor-pointer outline-none border-[3px] border-transparent focus:border-orange rounded-l-md"
                 >
                     {ddOptions.map((opt, index) => (
                         <option
