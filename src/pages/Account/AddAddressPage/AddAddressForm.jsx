@@ -50,120 +50,116 @@ const AddAddressForm = ({ user }) => {
     };
 
     return (
-        <>
-            <form
-                className="w-full flex flex-col gap-5"
-                onSubmit={handleSubmit(onSubmit)}
-                method="POST"
-            >
-                <label>
-                    <span className="font-emberCondensedBold">Pays/région</span>
-                    <div className="relative flex items-center">
-                        <select
-                            {...register("country")}
-                            className="w-full border-[1px] bg-bg-mainlight border-secondary rounded focus:outline-none text-base font-emberCondensed px-2 py-1"
-                            defaultValue="Sélectionnez votre pays"
-                            onChange={(e) =>
-                                setValue("country", e.target.value, {
-                                    shouldValidate: true,
-                                })
-                            }
-                        >
-                            {userAddressCountries.map((country, index) => (
-                                <option key={country + index}>{country}</option>
-                            ))}
-                        </select>
-                        <MdKeyboardArrowDown
-                            color="black"
-                            size={18}
-                            className="absolute right-2"
-                        />
-                    </div>
-                    {!!errors?.country?.message && (
-                        <p className="text-sm text-red font-emberCondensed mt-2">
-                            {errors.country.message}
-                        </p>
-                    )}
-                </label>
-                <label>
-                    <span className="font-emberCondensedBold">Nom complet</span>
-                    <Input
-                        placeholder="Saisissez votre nom"
-                        register={register}
-                        inputname={"fullname"}
-                        error={errors?.fullname?.message}
+        <form
+            className="w-full flex flex-col gap-5"
+            onSubmit={handleSubmit(onSubmit)}
+            method="POST"
+        >
+            <label>
+                <span className="font-emberCondensedBold">Pays/région</span>
+                <div className="relative flex items-center">
+                    <select
+                        {...register("country")}
+                        className="w-full border-[1px] bg-bg-mainlight border-secondary rounded focus:outline-none text-base font-emberCondensed px-2 py-1"
+                        defaultValue="Sélectionnez votre pays"
+                        onChange={(e) =>
+                            setValue("country", e.target.value, {
+                                shouldValidate: true,
+                            })
+                        }
+                    >
+                        {userAddressCountries.map((country, index) => (
+                            <option key={country + index}>{country}</option>
+                        ))}
+                    </select>
+                    <MdKeyboardArrowDown
+                        color="black"
+                        size={18}
+                        className="absolute right-2"
                     />
-                </label>
-                <label>
-                    <span className="font-emberCondensedBold">
-                        Numéro de téléphone
-                    </span>
-                    <Input
-                        register={register}
-                        inputname={"phoneNumber"}
-                        error={errors?.phoneNumber?.message}
-                    />
-                </label>
-                <label>
-                    <span className="font-emberCondensedBold">Adresse</span>
-                    <div className="flex flex-col gap-1">
-                        <Input
-                            placeholder="Adresse"
-                            register={register}
-                            inputname={"street"}
-                            error={errors?.street?.message}
-                        />
-                        <Input
-                            placeholder="Apt, suite, unité, nom de l'entreprise (facultatif)"
-                            register={register}
-                            inputname={"streetBis"}
-                            error={""}
-                        />
-                    </div>
-                </label>
-
-                <div className="w-full flex justify-between gap-3">
-                    <label className="w-full">
-                        <span className="font-emberCondensedBold">
-                            Code postal
-                        </span>
-                        <Input
-                            register={register}
-                            inputname={"zipCode"}
-                            error={errors?.zipCode?.message}
-                        />
-                    </label>
-                    <label className="w-full">
-                        <span className="font-emberCondensedBold">Ville</span>
-                        <Input
-                            register={register}
-                            inputname={"city"}
-                            error={errors?.city?.message}
-                        />
-                    </label>
                 </div>
-
-                <label className="flex items-baseline gap-1">
-                    <input
-                        type="checkbox"
-                        {...register("defaultAddress")}
-                        error={errors?.defaultAddress?.message}
+                {!!errors?.country?.message && (
+                    <p className="text-sm text-red font-emberCondensed mt-2">
+                        {errors.country.message}
+                    </p>
+                )}
+            </label>
+            <label>
+                <span className="font-emberCondensedBold">Nom complet</span>
+                <Input
+                    placeholder="Saisissez votre nom"
+                    register={register}
+                    inputname={"fullname"}
+                    error={errors?.fullname?.message}
+                />
+            </label>
+            <label>
+                <span className="font-emberCondensedBold">
+                    Numéro de téléphone
+                </span>
+                <Input
+                    register={register}
+                    inputname={"phoneNumber"}
+                    error={errors?.phoneNumber?.message}
+                />
+            </label>
+            <label>
+                <span className="font-emberCondensedBold">Adresse</span>
+                <div className="flex flex-col gap-1">
+                    <Input
+                        placeholder="Adresse"
+                        register={register}
+                        inputname={"street"}
+                        error={errors?.street?.message}
                     />
-                    <span className="">
-                        Faire de cette addresse mon addresse par défaut
-                    </span>
+                    <Input
+                        placeholder="Apt, suite, unité, nom de l'entreprise (facultatif)"
+                        register={register}
+                        inputname={"streetBis"}
+                        error={""}
+                    />
+                </div>
+            </label>
+
+            <div className="w-full flex justify-between gap-3">
+                <label className="w-full">
+                    <span className="font-emberCondensedBold">Code postal</span>
+                    <Input
+                        register={register}
+                        inputname={"zipCode"}
+                        error={errors?.zipCode?.message}
+                    />
                 </label>
-                <button
-                    disabled={!!isSubmitting}
-                    className={
-                        isSubmitting ? "flex w-full opacity-50" : "flex w-full"
-                    }
-                    type="submit"
-                >
-                    <Button>Ajouter une adresse</Button>
-                </button>
-            </form>
-        </>
+                <label className="w-full">
+                    <span className="font-emberCondensedBold">Ville</span>
+                    <Input
+                        register={register}
+                        inputname={"city"}
+                        error={errors?.city?.message}
+                    />
+                </label>
+            </div>
+
+            <label className="flex items-baseline gap-1">
+                <input
+                    type="checkbox"
+                    {...register("defaultAddress")}
+                    error={errors?.defaultAddress?.message}
+                />
+                <span className="">
+                    Faire de cette addresse mon addresse par défaut
+                </span>
+            </label>
+            <button
+                disabled={!!isSubmitting}
+                className={
+                    isSubmitting ? "flex w-full opacity-50" : "flex w-full"
+                }
+                type="submit"
+            >
+                <Button>Ajouter une adresse</Button>
+            </button>
+        </form>
     );
 };
 

@@ -1,26 +1,18 @@
-// import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-// import { db } from "../initialize";
+import {
+    addDoc,
+    collection,
+    deleteDoc,
+    doc,
+    getDoc,
+    setDoc,
+    updateDoc,
+} from "firebase/firestore";
+import { db } from "../initialize";
 
-// // Add user data to firestore
-// export const createNewProduct = async (newUserUid, data) => {
-//     return await setDoc(doc(db, "Users", newUserUid), {
-//         firstname: data.name,
-//         lastname: "",
-//         email: data.email,
-//         profilPicture: "",
-//         defaultAddress: {
-//             fullname: "",
-//             phoneNumber: "",
-//             country: "",
-//             street: "",
-//             streetBis: "",
-//             zipCode: "",
-//             city: "",
-//             defaultAddress: "",
-//         },
-//         addresses: [],
-//     });
-// };
+// Add user data to firestore
+export const addNewProduct = async (user, data) => {
+    return await addDoc(collection(db, "Products"), data);
+};
 
 // // Get user data from firestore
 // export const getUserFirestoreData = async (userUid) => {

@@ -82,78 +82,73 @@ const UpdateUserdataForm = ({ user, fetchUserData }) => {
     };
 
     return (
-        <>
-            <form
-                className="w-full flex flex-auto flex-col gap-5"
-                onSubmit={handleSubmit(onSubmit)}
-                method="POST"
+        <form
+            className="w-full flex flex-auto flex-col gap-5"
+            onSubmit={handleSubmit(onSubmit)}
+            method="POST"
+        >
+            <label>
+                <span className="font-emberCondensedBold">Prénom</span>
+                <Input
+                    placeholder="Saisissez votre prénom"
+                    register={register}
+                    inputname={"firstname"}
+                    error={errors?.firstname?.message}
+                    defaultValue={user.firstname}
+                />
+            </label>
+            <label>
+                <span className="font-emberCondensedBold">Nom</span>
+                <Input
+                    placeholder="Saisissez votre nom"
+                    register={register}
+                    inputname={"lastname"}
+                    error={errors?.lastname?.message}
+                    defaultValue={user.lastname}
+                />
+            </label>
+            <label>
+                <span className="font-emberCondensedBold">Email</span>
+                <Input
+                    placeholder="Modifier votre email"
+                    register={register}
+                    inputname={"email"}
+                    error={errors?.email?.message}
+                    defaultValue={user.email}
+                />
+            </label>
+
+            <label htmlFor="avatar" className="flex flex-row gap-6 my-2">
+                <span className="font-emberCondensedBold bg-bg-main rounded px-3 py-2 h-fit text-sm border-[1px] border-secondary">
+                    Ajouter un avatar
+                </span>
+                <div className="w-20 aspect-square">
+                    <input
+                        onChange={(e) => inputImageHandler(e)}
+                        id="avatar"
+                        type="file"
+                        accept="image/*"
+                        placeholder="Ajouter un avatar"
+                        // {...register("profilPicture")}
+                        className="hidden"
+                    />
+
+                    {!!currentImgUrl && (
+                        <img className="object-contain" src={currentImgUrl} />
+                    )}
+                </div>
+            </label>
+
+            <button
+                disabled={!!isSubmitting}
+                className={
+                    isSubmitting ? "flex w-full opacity-50" : "flex w-full"
+                }
+                type="submit"
             >
-                <label>
-                    <span className="font-emberCondensedBold">Prénom</span>
-                    <Input
-                        placeholder="Saisissez votre prénom"
-                        register={register}
-                        inputname={"firstname"}
-                        error={errors?.firstname?.message}
-                        defaultValue={user.firstname}
-                    />
-                </label>
-                <label>
-                    <span className="font-emberCondensedBold">Nom</span>
-                    <Input
-                        placeholder="Saisissez votre nom"
-                        register={register}
-                        inputname={"lastname"}
-                        error={errors?.lastname?.message}
-                        defaultValue={user.lastname}
-                    />
-                </label>
-                <label>
-                    <span className="font-emberCondensedBold">Email</span>
-                    <Input
-                        placeholder="Modifier votre email"
-                        register={register}
-                        inputname={"email"}
-                        error={errors?.email?.message}
-                        defaultValue={user.email}
-                    />
-                </label>
-
-                <label htmlFor="avatar" className="flex flex-row gap-6 my-2">
-                    <span className="font-emberCondensedBold bg-bg-main rounded px-3 py-2 h-fit text-sm border-[1px] border-secondary">
-                        Ajouter un avatar
-                    </span>
-                    <div className="w-20 aspect-square">
-                        <input
-                            onChange={(e) => inputImageHandler(e)}
-                            id="avatar"
-                            type="file"
-                            accept="image/*"
-                            placeholder="Ajouter un avatar"
-                            // {...register("profilPicture")}
-                            className="hidden"
-                        />
-
-                        {!!currentImgUrl && (
-                            <img
-                                className="object-contain"
-                                src={currentImgUrl}
-                            />
-                        )}
-                    </div>
-                </label>
-
-                <button
-                    disabled={!!isSubmitting}
-                    className={
-                        isSubmitting ? "flex w-full opacity-50" : "flex w-full"
-                    }
-                    type="submit"
-                >
-                    <Button>Mettre à jour</Button>
-                </button>
-            </form>
-        </>
+                <Button>Mettre à jour</Button>
+            </button>
+        </form>
     );
 };
 

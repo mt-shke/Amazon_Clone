@@ -31,6 +31,7 @@ const ProductPage = () => {
         fullPrice: 42900,
         amazonChoice: true,
         seller: "Amazon",
+        productType: "watch",
         reviews: {
             list: [
                 { one: "One review" },

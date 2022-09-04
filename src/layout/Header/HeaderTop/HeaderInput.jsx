@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdArrowDropDown } from "react-icons/md";
+import { categories } from "../../../data";
 
 const HeaderInput = () => {
     const [selection, setSelection] = useState("");
@@ -53,53 +54,4 @@ const HeaderInput = () => {
 
 export default HeaderInput;
 
-const ddOptions = [
-    "Toutes nos catégories",
-    "Alexa Skills",
-    "Amazon Global Store",
-    "Amazon Warehouse",
-    "Animalerie",
-    "Applis & Jeux",
-    "Auto et Moto",
-    "Bagages",
-    "Beauté et Parfum",
-    "Beauté Premium",
-    "Bijoux",
-    "Boutique chèques-cadeaux",
-    "Boutique Kindle",
-    "Bricolage",
-    "Bébé & Puériculture",
-    "Chaussures et Sacs",
-    "Cuisine & Maison",
-    "DVD & Blu-ray",
-    "Epicerie",
-    "Boutique chèques-cadeaux",
-    "Boutique Kindle",
-    "Bricolage",
-    "Bébé & Puériculture",
-    "Chaussures et Sacs",
-    "Cuisine & Maison",
-    "DVD & Blu-ray",
-    "Epicerie",
-    "Jardin",
-    "Jeux et Jouets",
-    "Jeux vidéo",
-    "Livres",
-    "Livres audio Audible",
-    "Logiciels",
-    "Luminaires et Eclairage",
-    "Luxury Stores",
-    "Mode",
-    "Moins de 10€",
-    "Monoprix",
-    "Montres",
-    "Musique : CD & Vinyles",
-    "Musique classique",
-    "Prime Video",
-    "Jardin",
-    "Prévoyez et Economisez",
-    "Secteur industriel et scientifique",
-    "Sports et Loisirs",
-    "Téléchargement de musique",
-    "Vêtements et accessoires",
-];
+const ddOptions = ["Toutes nos catégories", ...categories];

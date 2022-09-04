@@ -1,11 +1,19 @@
-import { boolean, object, string } from "yup";
+import { mixed, array, ref, boolean, object, string, number } from "yup";
+import { categories, productType } from "../data";
 
 export const addProductSchema = object().shape({
-    title: string().trim().required("Saisissez le titre de votre produit"),
-    title: string().trim().required("Saisissez le titre de votre produit"),
-    street: string().trim().required("Saisissez votre adresse"),
-    streetBis: string().trim(),
-    city: string().trim().required("Saisissez votre ville"),
+    name: string().trim().required("Saisissez le nom de votre article"),
+    title: string().trim().required("Saisissez le titre de votre article"),
+    category: string()
+        .oneOf(categories)
+        .required("Saisissez la categorie de l'article"),
+    productType: string()
+        .oneOf(productType)
+        .required("Saisissez le type du produit"),
+    rating: number().positive().integer().min(1).max(5),
+    price: number().positive(),
+    fullPrice: number().positive(),
+    amazonChoice: boolean().default(false),
 });
 
 // const productData = {
