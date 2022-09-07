@@ -8,6 +8,7 @@ import { deleteImg, sendImgToStorage } from "../../../firebase/storage";
 import { addNewProduct } from "../../../firebase/productsCollection";
 import ProductFormImages from "./ProductFormImages";
 import { addProductToCategoryCollection } from "../../../firebase/categoriesCollection";
+import FormInputCategory from "./FormInputCategory";
 
 const AddProductForm = ({ user }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -53,7 +54,6 @@ const AddProductForm = ({ user }) => {
             //     productId,
             //     data
             // );
-
             // console.log("ProductAddedToCat", productAddedToCategory);
 
             // if (!productAddedToCategory) {
@@ -81,7 +81,7 @@ const AddProductForm = ({ user }) => {
         >
             <h2 className="text-3xl font-emberCondensed">S'identifier</h2>
             <label>
-                Nom de l'article
+                Nom
                 <Input
                     register={register}
                     inputname={"name"}
@@ -89,7 +89,7 @@ const AddProductForm = ({ user }) => {
                 />
             </label>
             <label>
-                Titre de l'article
+                Titre
                 <Input
                     register={register}
                     inputname={"title"}
@@ -97,15 +97,16 @@ const AddProductForm = ({ user }) => {
                 />
             </label>
             <label>
-                Catégorie de l'article
+                Catégorie
                 <Input
                     register={register}
                     inputname={"category"}
+                    inputCategory={true}
                     error={errors?.category?.message}
                 />
             </label>
             <label>
-                Type de l'article
+                Type
                 <Input
                     register={register}
                     inputname={"productType"}
@@ -113,7 +114,7 @@ const AddProductForm = ({ user }) => {
                 />
             </label>
             <label>
-                Prix actuel de l'article
+                Prix actuel
                 <Input
                     register={register}
                     inputname={"price"}
@@ -121,7 +122,7 @@ const AddProductForm = ({ user }) => {
                 />
             </label>
             <label>
-                Prix réel de l'article
+                Prix réel
                 <Input
                     register={register}
                     inputname={"fullPrice"}

@@ -5,7 +5,7 @@ export const addProductSchema = object().shape({
     name: string().trim().required("Saisissez le nom de votre article"),
     title: string().trim().required("Saisissez le titre de votre article"),
     category: string()
-        .oneOf(categories)
+        .oneOf(categories, "Veuillez saisir la catégorie de l'article")
         .required("Saisissez la categorie de l'article"),
     productType: string()
         .oneOf(productType)
